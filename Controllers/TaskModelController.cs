@@ -112,7 +112,7 @@ namespace Scheduler_Project.Controllers
         /// </summary>
         /// <example> POST: api/TaskData/AddTask </example>
         /// <param name="task">A Task Object</param>
-        /// <returns>Successful or Not Successful</returns> (CHECKED BUT NOT SURE)
+        /// <returns>Successful or Not Successful</returns> (CHECKED)
         // POST: api/TaskData/AddTask   //A Task[2] object, sent as Post Form Data. Mine is not!
         [ResponseType(typeof(Task))]
         [Route("api/TaskData/AddTask")]
@@ -135,7 +135,7 @@ namespace Scheduler_Project.Controllers
         /// <example> POST: api/TaskData/UpdateTask/1 </example>
         /// <param name="id">Task Id</param>
         /// <param name="task">A Task Object</param>
-        /// <returns></returns>//Updated to database (CHECKED BUT NOT SURE)
+        /// <returns></returns>//Updated to database (CHECKED)
         // POST: api/TaskData/UpdateTask/1   //A Task[2] object, sent as Post Form Data. Mine is not!
         [ResponseType(typeof(void))]
         [HttpPost]
