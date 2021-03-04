@@ -13,7 +13,7 @@ using System.Web.Script.Serialization;
 
 namespace Scheduler_Project.Controllers
 {
-    public class TaskController : Controller
+    public class ProjectController : Controller
     {
         //Http Client is the proper way to connect to a webapi
         //https://docs.microsoft.com/en-us/dotnet/api/system.net.http.httpclient?view=net-5.0
@@ -22,7 +22,7 @@ namespace Scheduler_Project.Controllers
         private static readonly HttpClient client;
 
 
-        static TaskController()
+        static ProjectController()
         {
             HttpClientHandler handler = new HttpClientHandler()
             {
@@ -37,15 +37,15 @@ namespace Scheduler_Project.Controllers
         /// 
         /// </summary>
         /// <returns></returns>
-        // GET: Task/List
+        // GET: Project/List
         public ActionResult List()
         {
-            string url = "TaskData/GetTasks";
+            string url = "ProjectData/GetProjects";
             HttpResponseMessage response = client.GetAsync(url).Result;
             if (response.IsSuccessStatusCode)
             {
-                IEnumerable<TaskDto> SelectedTasks = response.Content.ReadAsAsync<IEnumerable<TaskDto>>().Result;
-                return View(SelectedTasks);
+                IEnumerable<ProjectDto> SelectedProjects = response.Content.ReadAsAsync<IEnumerable<ProjectDto>>().Result;
+                return View(SelectedProjects);
             }
             else
             {
@@ -57,20 +57,20 @@ namespace Scheduler_Project.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        // GET: Task/Details/1
+        // GET: Project/Details/1
         public ActionResult Details(int id)
         {
-            ShowTask ViewModel = new ShowTask();
-            string url = "TaskData/FindTask/" + id;
+            ShowProject ViewModel = new ShowProject();
+            string url = "ProjectData/FindProject/" + id;
             HttpResponseMessage response = client.GetAsync(url).Result;
             Debug.WriteLine(response.StatusCode);
             if (response.IsSuccessStatusCode)
             {
-                //Put data into Task Data Transfer Object
-                TaskDto SelcetedTask = response.Content.ReadAsAsync<TaskDto>().Result;
-                ViewModel.Task = SelcetedTask;
-                //Find the Category for Task by Id
-                url = "CategoryData/FindCategoryForTask/" + id;
+                //Put data into Project Data Transfer Object
+                ProjectDto SelcetedProject = response.Content.ReadAsAsync<ProjectDto>().Result;
+                ViewModel.Project = SelcetedProject;
+                //Find the Category for Project by Id
+                url = "CategoryData/FindCategoryForProject/" + id;
                 response = client.GetAsync(url).Result;
                 CategoryDto SelectedCategory = response.Content.ReadAsAsync<CategoryDto>().Result;
                 ViewModel.Category = SelectedCategory;
@@ -90,8 +90,8 @@ namespace Scheduler_Project.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            UpdateTask ViewModel = new UpdateTask();
-            //get information about Categories this Task is in.
+            UpdateProject ViewModel = new UpdateProject();
+            //get information about Categories this Project is in.
             string url = "CategoryData/GetCategories";
             HttpResponseMessage response = client.GetAsync(url).Result;
             IEnumerable<CategoryDto> PotetnialCategories = response.Content.ReadAsAsync<IEnumerable<CategoryDto>>().Result;
@@ -101,23 +101,23 @@ namespace Scheduler_Project.Controllers
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="TaskInfo"></param>
+        /// <param name="ProjectInfo"></param>
         /// <returns></returns>
-        // POST: Task/Create
+        // POST: Project/Create
         [HttpPost]
         [ValidateAntiForgeryToken()]
-        public ActionResult Create(Task TaskInfo)
+        public ActionResult Create(Project ProjectInfo)
         {
-            Debug.WriteLine(TaskInfo.TaskName);
-            string url = "TaskData/AddTask";
-            //Debug.WriteLine(jss.Serialize(TaskInfo));
-            HttpContent content = new StringContent(jss.Serialize(TaskInfo));
+            Debug.WriteLine(ProjectInfo.ProjectName);
+            string url = "ProjectData/AddProject";
+            //Debug.WriteLine(jss.Serialize(ProjectInfo));
+            HttpContent content = new StringContent(jss.Serialize(ProjectInfo));
             content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
             HttpResponseMessage response = client.PostAsync(url, content).Result;
             if (response.IsSuccessStatusCode)
             {
-                int TaskID = response.Content.ReadAsAsync<int>().Result;
-                return RedirectToAction("Details", new { id = TaskID });
+                int ProjectID = response.Content.ReadAsAsync<int>().Result;
+                return RedirectToAction("Details", new { id = ProjectID });
             }
             else
             {
@@ -129,25 +129,25 @@ namespace Scheduler_Project.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        // GET: Task/Edit/2
+        // GET: Project/Edit/2
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            UpdateTask ViewModel = new UpdateTask();
+            UpdateProject ViewModel = new UpdateProject();
 
-            string url = "TaskData/FindTask/" + id;
+            string url = "ProjectData/FindProject/" + id;
             HttpResponseMessage response = client.GetAsync(url).Result;
             //Can catch the status code (200 OK, 301 REDIRECT), etc.
             Debug.WriteLine(response.StatusCode);
             if (response.IsSuccessStatusCode)
             {
-                TaskDto SelectedTask = response.Content.ReadAsAsync<TaskDto>().Result;
-                ViewModel.Task = SelectedTask;
+                ProjectDto SelectedProject = response.Content.ReadAsAsync<ProjectDto>().Result;
+                ViewModel.Project = SelectedProject;
 
                 url = "CategoryData/GetCategories";
                 response = client.GetAsync(url).Result;
-                IEnumerable<CategoryDto> TasksCategory = response.Content.ReadAsAsync<IEnumerable<CategoryDto>>().Result;
-                ViewModel.Allcategories = TasksCategory;
+                IEnumerable<CategoryDto> ProjectsCategory = response.Content.ReadAsAsync<IEnumerable<CategoryDto>>().Result;
+                ViewModel.Allcategories = ProjectsCategory;
 
                 return View(ViewModel);
             }
@@ -157,15 +157,15 @@ namespace Scheduler_Project.Controllers
             }
         }
 
-        // POST: Task/Edit/2
+        // POST: Project/Edit/2
         [HttpPost]
         [ValidateAntiForgeryToken()]
-        public ActionResult Edit(int id, Task TaskInfo)
+        public ActionResult Edit(int id, Project ProjectInfo)
         {
-            Debug.WriteLine(TaskInfo.TaskName);
-            string url = "TaskData/UpdateTask/" + id;
-            Debug.WriteLine(jss.Serialize(TaskInfo));
-            HttpContent content = new StringContent(jss.Serialize(TaskInfo));
+            Debug.WriteLine(ProjectInfo.ProjectName);
+            string url = "ProjectData/UpdateProject/" + id;
+            Debug.WriteLine(jss.Serialize(ProjectInfo));
+            HttpContent content = new StringContent(jss.Serialize(ProjectInfo));
             content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
             HttpResponseMessage response = client.PostAsync(url, content).Result;
             Debug.WriteLine(response.StatusCode);
@@ -179,18 +179,18 @@ namespace Scheduler_Project.Controllers
             }
         }
 
-        // GET: Task/Delete/5
+        // GET: Project/Delete/5
         [HttpGet]
         public ActionResult DeleteConfirm(int id)
         {
-            string url = "TaskData/FindTask/" + id;
+            string url = "ProjectData/FindProject/" + id;
             HttpResponseMessage response = client.GetAsync(url).Result;
             //Can catch the status code (200 OK, 301 REDIRECT), etc.
             //Debug.WriteLine(response.StatusCode);
             if (response.IsSuccessStatusCode)
             {
-                TaskDto SelectedTask = response.Content.ReadAsAsync<TaskDto>().Result;
-                return View(SelectedTask);
+                ProjectDto SelectedProject = response.Content.ReadAsAsync<ProjectDto>().Result;
+                return View(SelectedProject);
             }
             else
             {
@@ -198,12 +198,12 @@ namespace Scheduler_Project.Controllers
             }
         }
 
-        // POST: Task/Delete/5
+        // POST: Project/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken()]
         public ActionResult Delete(int id)
         {
-            string url = "TaskData/DeleteTask/" + id;
+            string url = "ProjectData/DeleteProject/" + id;
             HttpContent content = new StringContent("");
             HttpResponseMessage response = client.PostAsync(url, content).Result;
             //Can catch the status code (200 OK, 301 REDIRECT), etc.

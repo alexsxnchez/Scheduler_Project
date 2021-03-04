@@ -10,7 +10,7 @@ namespace Scheduler_Project.Models.ViewModels
         //Information about the team
         public CategoryDto Category { get; set; }
 
-        //Information about all Tasks on that Categories
-        public IEnumerable<TaskDto> Categorytasks { get; set; }
+        //Information about all Projects on that Categories
+        public IEnumerable<ProjectDto> CategoryProjects { get; set; }
     }
 }

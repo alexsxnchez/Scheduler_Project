@@ -70,12 +70,12 @@ namespace Scheduler_Project.Controllers
                 CategoryDto SelectedCategory = response.Content.ReadAsAsync<CategoryDto>().Result;
                 ViewModel.Category = SelectedCategory;//Seen in the ViewModel Folder
 
-                url = "CategoryData/GetTaskForCategory/" + id;
+                url = "CategoryData/GetProjectForCategory/" + id;
                 response = client.GetAsync(url).Result;
                 //Can catch the status code (200 OK, 301 REDIRECT), etc.
                 Debug.WriteLine(response.StatusCode);
-                IEnumerable<TaskDto> SelectedTasks = response.Content.ReadAsAsync<IEnumerable<TaskDto>>().Result;
-                ViewModel.Categorytasks = SelectedTasks;//Seen in the ViewModel Folder
+                IEnumerable<ProjectDto> SelectedProjects = response.Content.ReadAsAsync<IEnumerable<ProjectDto>>().Result;
+                ViewModel.CategoryProjects = SelectedProjects;//Seen in the ViewModel Folder
 
                 return View(ViewModel);
             }

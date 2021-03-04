@@ -5,9 +5,9 @@ using System.Web;
 
 namespace Scheduler_Project.Models.ViewModels
 {
-    public class ShowTask
+    public class ShowProject
     {
-        public TaskDto Task { get; set; }
+        public ProjectDto Project { get; set; }
         //information about the team the player plays for
         public CategoryDto Category { get; set; }
     }

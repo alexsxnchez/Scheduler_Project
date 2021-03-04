@@ -5,11 +5,11 @@ using System.Web;
 
 namespace Scheduler_Project.Models.ViewModels
 {
-    //The View Model required to update a Task
-    public class UpdateTask
+    //The View Model required to update a Project
+    public class UpdateProject
     {
         //Information about the player
-        public TaskDto Task { get; set; }
+        public ProjectDto Project { get; set; }
         //Needed for a dropdownlist which presents the player with a choice of teams to play for
         public IEnumerable<CategoryDto> Allcategories { get; set; }
     }

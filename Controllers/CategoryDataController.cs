@@ -17,7 +17,7 @@ namespace Scheduler_Project.Controllers
     {
         private SchedulerDataContext db = new SchedulerDataContext();
         /// <summary>
-        ///     Returns a kist of Task in the database
+        ///     Returns a List of Categories in the database
         /// </summary>
         /// <example> GET: api/CategoryData/GetCategories </example>
         /// <returns>A list of Category information (Categroy Id, Category Name)</returns> (CHECKED)
@@ -70,32 +70,32 @@ namespace Scheduler_Project.Controllers
         /// <summary>
         ///      Gets a list of Categories in the database
         /// </summary>
-        /// <example> GET: api/CategoryData/GetTaskForCategory </example>
+        /// <example> GET: api/CategoryData/GetProjectForCategory </example>
         /// <param name="id">The Category Id</param>
-        /// <returns>Returns a list of Tasks associated with the Category</returns> (CHECKED)
-        // GET: api/CategoryData/GetTaskForCategory
+        /// <returns>Returns a list of Projects associated with the Category</returns> (CHECKED)
+        // GET: api/CategoryData/GetProjectForCategory
         [HttpGet]
-        [Route("api/CategoryData/GetTaskForCategory/{id}")]
-        [ResponseType(typeof(IEnumerable<TaskDto>))]
-        public IHttpActionResult GetTaskForCategory(int id)
+        [Route("api/CategoryData/GetProjectForCategory/{id}")]
+        [ResponseType(typeof(IEnumerable<ProjectDto>))]
+        public IHttpActionResult GetProjectForCategory(int id)
         {
-            List<Task> Tasks = db.Tasks.Where(t => t.CategoryID == id)
+            List<Project> Projects = db.Projects.Where(t => t.CategoryID == id)
                 .ToList();
-            List<TaskDto> TaskDtos = new List<TaskDto> { };
+            List<ProjectDto> ProjectDtos = new List<ProjectDto> { };
 
-            foreach (var Task in Tasks)
+            foreach (var Project in Projects)
             {
-                TaskDto NewTask = new TaskDto
+                ProjectDto NewProject = new ProjectDto
                 {
-                    TaskID = Task.TaskID,
-                    TaskName = Task.TaskName,
-                    TaskDescription = Task.TaskDescription,
-                    TaskDate = Task.TaskDate,
-                    CategoryID = Task.CategoryID
+                    ProjectID = Project.ProjectID,
+                    ProjectName = Project.ProjectName,
+                    ProjectDescription = Project.ProjectDescription,
+                    ProjectDate = Project.ProjectDate,
+                    CategoryID = Project.CategoryID
                 };
-                TaskDtos.Add(NewTask);
+                ProjectDtos.Add(NewProject);
             }
-            return Ok(TaskDtos);
+            return Ok(ProjectDtos);
         }
         /// <summary>
         ///     Adds a Category to the database.

@@ -13,7 +13,7 @@ namespace Scheduler_Project.Models
         {
 
         }
-        public DbSet<Task> Tasks { get; set; }
+        public DbSet<Project> Projects { get; set; }
         public DbSet<Category> Categories { get; set; }
 
         /*Tools -> NuGet Package Manager -> Package Manager Console

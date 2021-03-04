@@ -1,0 +1,38 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel;
+
+namespace Scheduler_Project.Models
+{
+    public class Project
+    {
+        [Key]
+        public int ProjectID { get; set; }
+        public string ProjectName { get; set; }
+        public string ProjectDescription { get; set; }
+        public string ProjectDate { get; set; }
+
+        [ForeignKey("Category")]
+        public int CategoryID { get; set; }
+        public virtual Category Category { get; set; }
+    }
+
+    //Project Data Transfer Object (Dto) -> This is to secure the Project class.
+    public class ProjectDto
+    {
+        public int ProjectID { get; set; }
+        [DisplayName("Project Name")]
+        public string ProjectName { get; set; }
+        [DisplayName("Project Description")]
+        public string ProjectDescription { get; set; }
+        [DisplayName("Project Due Date")]
+        public string ProjectDate { get; set; }
+        [DisplayName("Category Id")]
+
+        public int CategoryID { get; set; }
+    }
+}

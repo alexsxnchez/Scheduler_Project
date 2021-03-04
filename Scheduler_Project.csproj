@@ -142,8 +142,8 @@
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\CategoryDataController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\TaskController.cs" />
-    <Compile Include="Controllers\TaskModelController.cs" />
+    <Compile Include="Controllers\ProjectController.cs" />
+    <Compile Include="Controllers\ProjectModelController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -151,13 +151,17 @@
     <Compile Include="Migrations\202102270544017_inital-0.designer.cs">
       <DependentUpon>202102270544017_inital-0.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202102280252534_inital-1.cs" />
+    <Compile Include="Migrations\202102280252534_inital-1.Designer.cs">
+      <DependentUpon>202102280252534_inital-1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\SchedulerDataContext.cs" />
-    <Compile Include="Models\Task.cs" />
+    <Compile Include="Models\Project.cs" />
     <Compile Include="Models\ViewModels\ShowCategory.cs" />
-    <Compile Include="Models\ViewModels\ShowTask.cs" />
-    <Compile Include="Models\ViewModels\UpdateTask.cs" />
+    <Compile Include="Models\ViewModels\ShowProject.cs" />
+    <Compile Include="Models\ViewModels\UpdateProject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -165,6 +169,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Content.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -201,12 +206,12 @@
     <Content Include="Views\Category\Error.cshtml" />
     <Content Include="Views\Category\DeleteConfirm.cshtml" />
     <Content Include="Views\Category\Details.cshtml" />
-    <Content Include="Views\Task\Create.cshtml" />
-    <Content Include="Views\Task\Details.cshtml" />
-    <Content Include="Views\Task\List.cshtml" />
-    <Content Include="Views\Task\Error.cshtml" />
-    <Content Include="Views\Task\DeleteConfirm.cshtml" />
-    <Content Include="Views\Task\Edit.cshtml" />
+    <Content Include="Views\Project\Create.cshtml" />
+    <Content Include="Views\Project\Details.cshtml" />
+    <Content Include="Views\Project\List.cshtml" />
+    <Content Include="Views\Project\Error.cshtml" />
+    <Content Include="Views\Project\DeleteConfirm.cshtml" />
+    <Content Include="Views\Project\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -227,6 +232,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202102270544017_inital-0.resx">
       <DependentUpon>202102270544017_inital-0.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102280252534_inital-1.resx">
+      <DependentUpon>202102280252534_inital-1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

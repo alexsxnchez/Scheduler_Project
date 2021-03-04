@@ -4,10 +4,10 @@
     ViewBag.Title = "List";
 }
 
-<h2>List</h2>
+<h2>Category List</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Add A Category", "Create", "Category", new { @class = "button btn btn-success" })
 </p>
 <table class="table">
     <tr>
@@ -24,8 +24,8 @@
                 @Html.DisplayFor(modelItem => item.CategoryName)
             </td>
             <td>
-                @Html.ActionLink("Details", "Details", new { id = item.CategoryID }) |
-                @Html.ActionLink("Delete", "DeleteConfirm", new { id = item.CategoryID })
+                @Html.ActionLink("Details", "Details", new { id = item.CategoryID }, new { @class = "text-warning" }) |
+                @Html.ActionLink("Delete", "DeleteConfirm", new { id = item.CategoryID }, new { @class="text-danger" })
             </td>
         </tr>
     }
