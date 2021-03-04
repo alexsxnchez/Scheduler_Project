@@ -3,30 +3,40 @@
     ViewBag.Title = "Details";
 }
 
-<h4>Project Details</h4>
+<h2>Project Details</h2>
 <hr />
-<dl>
-    <dt>
-        @Html.DisplayNameFor(model => model.Project.ProjectName):
-    </dt>
-    <dd>
-        @Html.DisplayFor(model => model.Project.ProjectName)
-    </dd>
-    <dt>
-        @Html.DisplayNameFor(model => model.Project.ProjectDate):
-    </dt>
-    <dd>
-        @Html.DisplayFor(model => model.Project.ProjectDate)
-    </dd>
-    <dt>
-        @Html.DisplayNameFor(model => model.Project.ProjectDescription):
-    </dt>
-    <dd>
-        @Html.DisplayFor(model => model.Project.ProjectDescription)
-    </dd>
-</dl>
+
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Project.ProjectName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Project.ProjectDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Project.ProjectDescription)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    @Html.DisplayFor(model => model.Project.ProjectName)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Project.ProjectDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Project.ProjectDescription)
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
 <div>
     @Html.ActionLink("Delete", "DeleteConfirm", new { id = Model.Project.ProjectID }, new { @class = "text-danger" }) |
     @Html.ActionLink("Edit", "Edit", new { id = Model.Project.ProjectID }, new { @class = "text-warning" }) |
-    @Html.ActionLink("Back to List", "List", "Category")
+    @Html.ActionLink("Go Back", "List", "Category")
 </div>
