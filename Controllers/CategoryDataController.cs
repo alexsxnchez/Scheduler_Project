@@ -36,21 +36,22 @@ namespace Scheduler_Project.Controllers
                 CategoryDto NewCategory = new CategoryDto
                 {
                     CategoryID = Category.CategoryID,
-                    CategoryName = Category.CategoryName
+                    CategoryName = Category.CategoryName,
+                    CategoryColor = Category.CategoryColor
                 };
                 //Add the Category name to the list
                 CategoryDtos.Add(NewCategory);
             }
             return Ok(CategoryDtos);
         }
-        /// <summary>
-        ///     Finding a Category by it's id
-        /// </summary>
-        /// <example> GET: api/CategoryData/FindCategory/1 </example>
-        /// <param name="id">Caategory Id</param>
-        /// <returns>All the information of the Category</returns> (CHECKED)
-        // GET: api/CategoryData/FindCategory/1
-        [HttpGet]
+            /// <summary>
+            ///     Finding a Category by it's id
+            /// </summary>
+            /// <example> GET: api/CategoryData/FindCategory/1 </example>
+            /// <param name="id">Caategory Id</param>
+            /// <returns>All the information of the Category</returns> (CHECKED)
+            // GET: api/CategoryData/FindCategory/1
+            [HttpGet]
         [Route("api/CategoryData/FindCategory/{id}")]
         [ResponseType(typeof(CategoryDto))]
         public IHttpActionResult FindCategory(int id)
@@ -63,7 +64,8 @@ namespace Scheduler_Project.Controllers
             CategoryDto CategoryDto = new CategoryDto
             {
                 CategoryID = Category.CategoryID,
-                CategoryName = Category.CategoryName
+                CategoryName = Category.CategoryName,
+                CategoryColor = Category.CategoryColor
             };
             return Ok(CategoryDto);
         }
@@ -119,6 +121,46 @@ namespace Scheduler_Project.Controllers
             return Ok(Category.CategoryID);
         }
         /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="Category"></param>
+        /// <returns></returns>
+        /// [HttpPost]
+        [ResponseType(typeof(void))]
+        public IHttpActionResult UpdateCategory(int id, [FromBody] Category Category)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            if (id != Category.CategoryID)
+            {
+                return BadRequest();
+            }
+
+            db.Entry(Category).State = EntityState.Modified;
+
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!CategoryExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return StatusCode(HttpStatusCode.NoContent);
+        }
+        /// <summary>
         ///     Deletes a Category in the database
         /// </summary>
         /// <example> POST: api/CategoryData/DeleteCategory/4 </example>
@@ -147,6 +189,15 @@ namespace Scheduler_Project.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        private bool CategoryExists(int id)
+        {
+            return db.Categories.Count(e => e.CategoryID == id) > 0;
         }
     }
 }

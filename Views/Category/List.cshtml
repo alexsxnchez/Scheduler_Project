@@ -14,6 +14,9 @@
         <th>
             @Html.DisplayNameFor(model => model.CategoryName)
         </th>
+        <th>
+            @Html.DisplayNameFor(model=> model.CategoryColor)
+        </th>
         <th></th>
     </tr>
 
@@ -23,11 +26,16 @@
             <td>
                 @Html.DisplayFor(modelItem => item.CategoryName)
             </td>
+            <td style="background-color:@Html.DisplayFor(modelItem => item.CategoryColor); border-radius:10px; width:10px;">
+                
+            </td>
             <td>
-                @Html.ActionLink("Details", "Details", new { id = item.CategoryID }, new { @class = "text-warning" }) |
-                @Html.ActionLink("Delete", "DeleteConfirm", new { id = item.CategoryID }, new { @class="text-danger" })
+                @Html.ActionLink("Update", "Edit", new { id = item.CategoryID }, new { @class = "text-success" }) |
+                @Html.ActionLink("Details", "Details", new { id = item.CategoryID }, new { @class = "text-detail" }) |
+                @Html.ActionLink("Delete", "DeleteConfirm", new { id = item.CategoryID }, new { @class = "text-alert" })
             </td>
         </tr>
     }
 
 </table>
+

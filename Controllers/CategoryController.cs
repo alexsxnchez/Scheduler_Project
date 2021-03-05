@@ -123,6 +123,56 @@ namespace Scheduler_Project.Controllers
         /// 
         /// </summary>
         /// <param name="id"></param>
+        /// <returns></returns>
+        // GET: Category/Edit/5
+        public ActionResult Edit(int id)
+        {
+            string url = "Categorydata/findCategory/" + id;
+            HttpResponseMessage response = client.GetAsync(url).Result;
+            //Can catch the status code (200 OK, 301 REDIRECT), etc.
+            //Debug.WriteLine(response.StatusCode);
+            if (response.IsSuccessStatusCode)
+            {
+                //Put data into Category data transfer object
+                CategoryDto SelectedCategory = response.Content.ReadAsAsync<CategoryDto>().Result;
+                return View(SelectedCategory);
+            }
+            else
+            {
+                return RedirectToAction("Error");
+            }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="CategoryInfo"></param>
+        /// <returns></returns>
+        // POST: Category/Edit/5
+        [HttpPost]
+        [ValidateAntiForgeryToken()]
+        public ActionResult Edit(int id, Category CategoryInfo)
+        {
+            Debug.WriteLine(CategoryInfo.CategoryName);
+            string url = "Categorydata/updateCategory/" + id;
+            Debug.WriteLine(jss.Serialize(CategoryInfo));
+            HttpContent content = new StringContent(jss.Serialize(CategoryInfo));
+            content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+            HttpResponseMessage response = client.PostAsync(url, content).Result;
+
+            if (response.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Details", new { id = id });
+            }
+            else
+            {
+                return RedirectToAction("Error");
+            }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
         /// <returns></returns> (CHECKED)
         // GET: Category/DeleteConfirm/1
         [HttpGet]

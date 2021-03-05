@@ -199,6 +199,14 @@
     <Compile Include="Migrations\202103050357515_initial-3.Designer.cs">
       <DependentUpon>202103050357515_initial-3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202103051713047_initial-4.cs" />
+    <Compile Include="Migrations\202103051713047_initial-4.Designer.cs">
+      <DependentUpon>202103051713047_initial-4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103051835525_initial-5.cs" />
+    <Compile Include="Migrations\202103051835525_initial-5.Designer.cs">
+      <DependentUpon>202103051835525_initial-5.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\SchedulerDataContext.cs" />
@@ -217,6 +225,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Content.css" />
+    <Content Include="Content\markup.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -280,6 +289,8 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\Lockedout.cshtml" />
+    <Content Include="Views\Project\EditProject.cshtml" />
+    <Content Include="Views\Category\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -309,6 +320,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202103050357515_initial-3.resx">
       <DependentUpon>202103050357515_initial-3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103051713047_initial-4.resx">
+      <DependentUpon>202103051713047_initial-4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103051835525_initial-5.resx">
+      <DependentUpon>202103051835525_initial-5.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

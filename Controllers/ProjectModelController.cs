@@ -48,6 +48,7 @@ namespace Scheduler_Project.Controllers
             }
             return Ok(ProjectDtos);
         }
+
         // <summary>
         ///     Finding a Project by it's id
         /// </summary>

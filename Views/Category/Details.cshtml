@@ -4,7 +4,7 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Category</h2>
+<h2>Category @Model.Category.CategoryName</h2>
 
 <div>
     <h4>Project Details</h4>
@@ -12,27 +12,26 @@
         <a href="/Project/Create" class="button btn btn-success">Add A Project</a>
     </p>
     <hr />
-    @foreach (var project in Model.CategoryProjects)
-    {
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>Project Name</th>
-                    <th>Project Due Date</th>
-                </tr>
-            </thead>
+    
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Project Name</th>
+            </tr>
+        </thead>
+        @foreach (var project in Model.CategoryProjects)
+        {
+
             <tbody>
                 <tr>
                     <td>
                         @Html.ActionLink(project.ProjectName, "Details", "Project", new { id = project.ProjectID }, new { })
                     </td>
-                    <td>
-                        @Html.ActionLink(project.ProjectDate, "Details", "Project", new { id = project.ProjectID }, new { })
-                    </td>
                 </tr>
             </tbody>
-        </table>
-    }
+
+        }
+    </table>
 </div>
 <p>
     @Html.ActionLink("Back to List", "List")

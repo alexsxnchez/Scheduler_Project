@@ -13,6 +13,7 @@ namespace Scheduler_Project.Models
         [Key]
         public int ProjectID { get; set; }
         public string ProjectName { get; set; }
+        [DataType(DataType.MultilineText)]
         public string ProjectDescription { get; set; }
         public string ProjectDate { get; set; }
 
@@ -27,9 +28,9 @@ namespace Scheduler_Project.Models
         public int ProjectID { get; set; }
         [DisplayName("Project Name")]
         public string ProjectName { get; set; }
-        [DisplayName("Project Description")]
+        [DisplayName("Description")]
         public string ProjectDescription { get; set; }
-        [DisplayName("Project Due Date")]
+        [DisplayName("Due Date")]
         public string ProjectDate { get; set; }
         [DisplayName("Category Id")]
 

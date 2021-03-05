@@ -116,8 +116,8 @@ namespace Scheduler_Project.Controllers
             HttpResponseMessage response = client.PostAsync(url, content).Result;
             if (response.IsSuccessStatusCode)
             {
-                int ProjectID = response.Content.ReadAsAsync<int>().Result;
-                return RedirectToAction("Details", new { id = ProjectID });
+                //int ProjectID = response.Content.ReadAsAsync<int>().Result;
+                return RedirectToAction("List", "Category" /*new { id = ProjectID }*/);
             }
             else
             {
@@ -210,7 +210,7 @@ namespace Scheduler_Project.Controllers
             //Debug.WriteLine(response.StatusCode);
             if (response.IsSuccessStatusCode)
             {
-                return RedirectToAction("List");
+                return RedirectToAction("List", "Category");
             }
             else
             {

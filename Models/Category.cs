@@ -12,6 +12,7 @@ namespace Scheduler_Project.Models
         [Key]
         public int CategoryID { get; set; }
         public string CategoryName { get; set; }
+        public string CategoryColor { get; set; }
         public ICollection<Project> Projects { get; set; }
     }
 
@@ -21,5 +22,7 @@ namespace Scheduler_Project.Models
         public int CategoryID { get; set; }
         [DisplayName("Category Name")]
         public string CategoryName { get; set; }
+        [DisplayName("Color")]
+        public string CategoryColor { get; set; }
     }
 }
