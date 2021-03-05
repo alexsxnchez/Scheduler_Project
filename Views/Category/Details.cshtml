@@ -9,7 +9,7 @@
 <div>
     <h4>Project Details</h4>
     <p>
-        @Html.ActionLink("Add A Project", "Create", "Project", new { @class = "button btn btn-success" })
+        <a href="/Project/Create" class="button btn btn-success">Add A Project</a>
     </p>
     <hr />
     @foreach (var project in Model.CategoryProjects)
