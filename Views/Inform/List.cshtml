@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Scheduler_Project.Models.InformDto>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>Inform List</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", "Inform", new { @class = "button btn btn-success" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.InfoData)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InfoPhoneNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InfoEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InfoUrl)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProjectID)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.InfoData)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InfoPhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InfoEmail)
+            </td>
+            <td class="col-sm-1">
+                @Html.DisplayFor(modelItem => item.InfoUrl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProjectID)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.InformID }) |
+                @Html.ActionLink("Delete", "DeleteConfirm", new { id = item.InformID }, new { @class = "text-danger" })
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,82 @@
+﻿@model Scheduler_Project.Models.ViewModels.UpdateInform
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create A New Inform</h2>
+
+@using (Html.BeginForm())
+{
+    //This will set a hidden input field with value "_RequestVerificationToken"
+    //The PlayerController Create Method will look for this token
+    //This helps secure the Create() method from being called from other pages.
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Make Sure to fill all the fields</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="row">
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Inform.InfoData, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Inform.InfoData, new { htmlAttributes = new { @class = "form-space", Name = "InfoData" } })
+                    @Html.ValidationMessageFor(model => model.Inform.InfoData, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Inform.InfoPhoneNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Inform.InfoPhoneNumber, new { htmlAttributes = new { @class = "form-space", Name = "InfoPhoneNumber", type = "phonenumber"} })
+                    @Html.ValidationMessageFor(model => model.Inform.InfoPhoneNumber, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Inform.InfoEmail, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Inform.InfoEmail, new { htmlAttributes = new { @class = "form-space", Name = "InfoEmail", type = "email" } })
+                    @Html.ValidationMessageFor(model => model.Inform.InfoEmail, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Inform.InfoUrl, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Inform.InfoUrl, new { htmlAttributes = new { @class = "form-space", Name = "InfoUrl", type = "url" } })
+                    @Html.ValidationMessageFor(model => model.Inform.InfoUrl, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Inform.ProjectID, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <select name="ProjectID">
+                        @foreach (var Project in Model.Allprojects)
+                        {
+                            <option value="@Project.ProjectID">@Project.ProjectName</option>
+                        }
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="button btn btn-success" />
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    <a href="javascript:void(0);" onclick="history.go(-1);">Back to Details</a>
+    <!--Html.ActionLink("Back to Details", "Details", new { id = Model.Inform.ProjectID })-->
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

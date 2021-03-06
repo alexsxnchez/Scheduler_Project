@@ -1,0 +1,73 @@
+﻿@model Scheduler_Project.Models.InformDto
+
+@{
+    ViewBag.Title = "DeleteConfirm";
+}
+
+<h2>DeleteConfirm</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Once it is deleted it can't be undone</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.InformID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InformID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InfoData)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InfoData)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InfoPhoneNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InfoPhoneNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InfoEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InfoEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InfoUrl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InfoUrl)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProjectID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProjectID)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm("Delete", "Inform", new { id = Model.InformID }))
+    {
+        @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        @Html.ActionLink("Back to Details", "Details", new { id = Model.InformID })
+    </div>
+    }
+</div>

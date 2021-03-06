@@ -10,5 +10,6 @@ namespace Scheduler_Project.Models.ViewModels
         public ProjectDto Project { get; set; }
         //information about the team the player plays for
         public CategoryDto Category { get; set; }
+        public IEnumerable<InformDto> ProjectInforms { get; set; }
     }
 }

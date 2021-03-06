@@ -15,7 +15,7 @@ using System.Diagnostics;
 
 namespace Scheduler_Project.Controllers
 {
-    public class ProjectModelController : ApiController
+    public class ProjectDataController : ApiController
     {
         private SchedulerDataContext db = new SchedulerDataContext();
         /// <summary>
@@ -103,10 +103,40 @@ namespace Scheduler_Project.Controllers
             CategoryDto CategoryDto = new CategoryDto
             {
                 CategoryID = Category.CategoryID,
-                CategoryName = Category.CategoryName
+                CategoryName = Category.CategoryName,
+                CategoryColor = Category.CategoryColor
             };
             //pass along data as 200 status code OK response
             return Ok(CategoryDto);
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("api/ProjectData/GetInformForProject/{id}")]
+        [ResponseType(typeof(IEnumerable<InformDto>))]
+        public IHttpActionResult GetInformForProject(int id)
+        {
+            List<Inform> Informs = db.Informs.Where(t => t.ProjectID == id)
+                .ToList();
+            List<InformDto> InformDtos = new List<InformDto> { };
+
+            foreach (var Inform in Informs)
+            {
+                InformDto NewInform = new InformDto
+                {
+                    InformID = Inform.InformID,
+                    InfoData = Inform.InfoData,
+                    InfoPhoneNumber = Inform.InfoPhoneNumber,
+                    InfoEmail = Inform.InfoEmail,
+                    InfoUrl = Inform.InfoUrl,
+                    ProjectID = Inform.ProjectID
+                };
+                InformDtos.Add(NewInform);
+            }
+            return Ok(InformDtos);
         }
         /// <summary>
         ///     Adds a Project to the database

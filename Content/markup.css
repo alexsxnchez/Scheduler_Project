@@ -109,3 +109,13 @@
     height: 10px;
     width: 10px;
 }
+.sched-back {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    color: inherit;
+    background-image: url(../Content/images/ab045c540e838496d5e77f82892bed14.jpg);
+}
+.move-right{
+    float:right;
+}

@@ -34,6 +34,7 @@ namespace Scheduler_Project.Models
         }
         public DbSet<Project> Projects { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<Inform> Informs { get; set; }
 
         /*Tools -> NuGet Package Manager -> Package Manager Console
          * enable-migrations (only once)

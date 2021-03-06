@@ -1,0 +1,39 @@
+﻿@model Scheduler_Project.Models.ViewModels.ShowInform
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Inform Details</h2>
+<hr />
+
+
+<dt>
+    @Html.DisplayNameFor(model => model.Inform.InfoData)
+</dt>
+<dd>
+    @Html.DisplayFor(model => model.Inform.InfoData)
+</dd>
+<dt>
+    @Html.DisplayNameFor(model => model.Inform.InfoPhoneNumber)
+</dt>
+<dd>
+    @Html.DisplayFor(model => model.Inform.InfoPhoneNumber)
+</dd>
+<dt>
+    @Html.DisplayNameFor(model => model.Inform.InfoEmail)
+</dt>
+<div>
+    @Html.DisplayFor(model => model.Inform.InfoEmail)
+</div>
+<dt>
+    @Html.DisplayNameFor(model => model.Inform.InfoUrl)
+</dt>
+<div>
+    @Html.DisplayFor(model => model.Inform.InfoUrl)
+</div>
+
+<div>
+    @Html.ActionLink("Delete", "DeleteConfirm", new { id = Model.Inform.InformID }, new { @class = "text-alert" }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Inform.InformID }, new { @class = "text-detail" }) |
+    @Html.ActionLink("Go Back", "List", "Category")
+</div>

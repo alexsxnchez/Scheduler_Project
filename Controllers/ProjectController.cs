@@ -58,6 +58,7 @@ namespace Scheduler_Project.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         // GET: Project/Details/1
+        [HttpGet]
         public ActionResult Details(int id)
         {
             ShowProject ViewModel = new ShowProject();
@@ -69,11 +70,20 @@ namespace Scheduler_Project.Controllers
                 //Put data into Project Data Transfer Object
                 ProjectDto SelcetedProject = response.Content.ReadAsAsync<ProjectDto>().Result;
                 ViewModel.Project = SelcetedProject;
+
                 //Find the Category for Project by Id
                 url = "CategoryData/FindCategoryForProject/" + id;
                 response = client.GetAsync(url).Result;
+                Debug.WriteLine(response.StatusCode);
                 CategoryDto SelectedCategory = response.Content.ReadAsAsync<CategoryDto>().Result;
                 ViewModel.Category = SelectedCategory;
+
+                //Get the Inform for Project by Id
+                url = "ProjectData/GetInformForProject/" + id;
+                response = client.GetAsync(url).Result;
+                Debug.WriteLine(response.StatusCode);
+                IEnumerable<InformDto> SelectedInforms = response.Content.ReadAsAsync<IEnumerable<InformDto>>().Result;
+                ViewModel.ProjectInforms = SelectedInforms;
 
                 return View(ViewModel);
             }
@@ -156,7 +166,12 @@ namespace Scheduler_Project.Controllers
                 return RedirectToAction("Error");
             }
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="ProjectInfo"></param>
+        /// <returns></returns>
         // POST: Project/Edit/2
         [HttpPost]
         [ValidateAntiForgeryToken()]
@@ -178,7 +193,11 @@ namespace Scheduler_Project.Controllers
                 return RedirectToAction("Error");
             }
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // GET: Project/Delete/5
         [HttpGet]
         public ActionResult DeleteConfirm(int id)
@@ -197,7 +216,11 @@ namespace Scheduler_Project.Controllers
                 return RedirectToAction("Error");
             }
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // POST: Project/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken()]

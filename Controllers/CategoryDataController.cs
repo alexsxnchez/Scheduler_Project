@@ -126,7 +126,8 @@ namespace Scheduler_Project.Controllers
         /// <param name="id"></param>
         /// <param name="Category"></param>
         /// <returns></returns>
-        /// [HttpPost]
+        [HttpPost]
+        [Route("api/CategoryData/UpdateCategory/{id}")]
         [ResponseType(typeof(void))]
         public IHttpActionResult UpdateCategory(int id, [FromBody] Category Category)
         {

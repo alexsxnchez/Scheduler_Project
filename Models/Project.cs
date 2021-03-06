@@ -13,13 +13,14 @@ namespace Scheduler_Project.Models
         [Key]
         public int ProjectID { get; set; }
         public string ProjectName { get; set; }
-        [DataType(DataType.MultilineText)]
         public string ProjectDescription { get; set; }
         public string ProjectDate { get; set; }
 
         [ForeignKey("Category")]
         public int CategoryID { get; set; }
         public virtual Category Category { get; set; }
+        //Added Extra Information Table
+        public ICollection<Inform> Informs { get; set; }
     }
 
     //Project Data Transfer Object (Dto) -> This is to secure the Project class.

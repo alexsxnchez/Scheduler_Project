@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.IO;
 using Scheduler_Project.Models;
 using Scheduler_Project.Models.ViewModels;
 using System.Net.Http;
@@ -12,7 +13,7 @@ using System.Web.Script.Serialization;
 
 namespace Scheduler_Project.Controllers
 {
-    public class CategoryController : Controller
+    public class InformController : Controller
     {
         //Http Client is the proper way to connect to a webapi
         //https://docs.microsoft.com/en-us/dotnet/api/system.net.http.httpclient?view=net-5.0
@@ -20,7 +21,8 @@ namespace Scheduler_Project.Controllers
         private JavaScriptSerializer jss = new JavaScriptSerializer();
         private static readonly HttpClient client;
 
-        static CategoryController()
+
+        static InformController()
         {
             HttpClientHandler handler = new HttpClientHandler()
             {
@@ -34,16 +36,16 @@ namespace Scheduler_Project.Controllers
         /// <summary>
         /// 
         /// </summary>
-        /// <returns></returns> (CHECKED)
-        // GET: Category/List
+        /// <returns></returns>
+        // GET: Inform/List
         public ActionResult List()
         {
-            string url = "CategoryData/GetCategories";
+            string url = "InformData/GetInforms";
             HttpResponseMessage response = client.GetAsync(url).Result;
             if (response.IsSuccessStatusCode)
             {
-                IEnumerable<CategoryDto> SelectedCategories = response.Content.ReadAsAsync<IEnumerable<CategoryDto>>().Result;
-                return View(SelectedCategories);
+                IEnumerable<InformDto> SelectedInforms = response.Content.ReadAsAsync<IEnumerable<InformDto>>().Result;
+                return View(SelectedInforms);
             }
             else
             {
@@ -54,28 +56,26 @@ namespace Scheduler_Project.Controllers
         /// 
         /// </summary>
         /// <param name="id"></param>
-        /// <returns></returns> (CHECKED)
-        // GET: Category/Details/5
-        [HttpGet]
+        /// <returns></returns>
+        // GET: Inform/Details/1
         public ActionResult Details(int id)
         {
-            ShowCategory ViewModel = new ShowCategory();
-            string url = "CategoryData/FindCategory/" + id;
+            ShowInform ViewModel = new ShowInform();
+            string url = "InformData/FindInform/" + id;
             HttpResponseMessage response = client.GetAsync(url).Result;
-            //Can catch the status code (200 OK, 301 REDIRECT), etc.
             Debug.WriteLine(response.StatusCode);
             if (response.IsSuccessStatusCode)
             {
-                //Put data into Category Data Transfer Object
-                CategoryDto SelectedCategory = response.Content.ReadAsAsync<CategoryDto>().Result;
-                ViewModel.Category = SelectedCategory;//Seen in the ViewModel Folder
+                //Put data into Inform Data Transfer Object
+                InformDto SelectedInform = response.Content.ReadAsAsync<InformDto>().Result;
+                ViewModel.Inform = SelectedInform;
 
-                url = "CategoryData/GetProjectForCategory/" + id;
+                //Find the Project for Inform by Id
+                url = "ProjectData/FindProjectForInform/" + id;
                 response = client.GetAsync(url).Result;
-                //Can catch the status code (200 OK, 301 REDIRECT), etc.
                 Debug.WriteLine(response.StatusCode);
-                IEnumerable<ProjectDto> SelectedProjects = response.Content.ReadAsAsync<IEnumerable<ProjectDto>>().Result;
-                ViewModel.CategoryProjects = SelectedProjects;//Seen in the ViewModel Folder
+                ProjectDto SelectedProject = response.Content.ReadAsAsync<ProjectDto>().Result;
+                ViewModel.Project = SelectedProject;
 
                 return View(ViewModel);
             }
@@ -87,32 +87,39 @@ namespace Scheduler_Project.Controllers
         /// <summary>
         /// 
         /// </summary>
-        /// <returns></returns> (CHECKED)
-        // GET: Category/Create
+        /// <returns></returns>
+        // GET: Project/Create
         [HttpGet]
         public ActionResult Create()
         {
-            return View();
+            UpdateInform ViewModel = new UpdateInform();
+            //get information about Projects this Inform is in.
+            string url = "ProjectData/GetProjects";
+            HttpResponseMessage response = client.GetAsync(url).Result;
+            IEnumerable<ProjectDto> PotetnialProjects = response.Content.ReadAsAsync<IEnumerable<ProjectDto>>().Result;
+            ViewModel.Allprojects = PotetnialProjects;
+            return View(ViewModel);
         }
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="CategoryInfo"></param>
-        /// <returns></returns> (CHECKED)
-        // POST: Category/Create
+        /// <param name="InformInfo"></param>
+        /// <returns></returns>
+        // POST: Inform/Create
         [HttpPost]
         [ValidateAntiForgeryToken()]
-        public ActionResult Create(Category CategoryInfo)
+        public ActionResult Create(Inform InformInfo)
         {
-            Debug.WriteLine(CategoryInfo.CategoryName);
-            string url = "CategoryData/AddCategory";
-            HttpContent content = new StringContent(jss.Serialize(CategoryInfo));
+            Debug.WriteLine(InformInfo.InfoData);
+            string url = "InformData/AddInform";
+            //Debug.WriteLine(jss.Serialize(InformInfo));
+            HttpContent content = new StringContent(jss.Serialize(InformInfo));
             content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
             HttpResponseMessage response = client.PostAsync(url, content).Result;
-
             if (response.IsSuccessStatusCode)
             {
-                return RedirectToAction("List");
+                int InformID = response.Content.ReadAsAsync<int>().Result;
+                return RedirectToAction("List", "Category");
             }
             else
             {
@@ -124,93 +131,88 @@ namespace Scheduler_Project.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        // GET: Category/Edit/5
+        // GET: Inform/Edit/2
+        [HttpGet]
         public ActionResult Edit(int id)
         {
-            string url = "CategoryData/FindCategory/" + id;
+            UpdateInform ViewModel = new UpdateInform();
+
+            string url = "InformData/FindInform/" + id;
             HttpResponseMessage response = client.GetAsync(url).Result;
             //Can catch the status code (200 OK, 301 REDIRECT), etc.
             Debug.WriteLine(response.StatusCode);
             if (response.IsSuccessStatusCode)
             {
-                //Put data into Category data transfer object
-                CategoryDto SelectedCategory = response.Content.ReadAsAsync<CategoryDto>().Result;
-                return View(SelectedCategory);
+                InformDto SelectedInform = response.Content.ReadAsAsync<InformDto>().Result;
+                ViewModel.Inform = SelectedInform;
+
+                url = "ProjectData/GetProjects";
+                response = client.GetAsync(url).Result;
+                IEnumerable<ProjectDto> InformsProject = response.Content.ReadAsAsync<IEnumerable<ProjectDto>>().Result;
+                ViewModel.Allprojects = InformsProject;
+
+                return View(ViewModel);
             }
             else
             {
                 return RedirectToAction("Error");
             }
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="id"></param>
-        /// <param name="CategoryInfo"></param>
-        /// <returns></returns>
-        // POST: Category/Edit/5
+
+        // POST: Inform/Edit/2
         [HttpPost]
         [ValidateAntiForgeryToken()]
-        public ActionResult Edit(int id, Category CategoryInfo)
+        public ActionResult Edit(int id, Inform InformInfo)
         {
-            Debug.WriteLine(CategoryInfo.CategoryName);
-            string url = "CategoryData/UpdateCategory/" + id;
-            Debug.WriteLine(jss.Serialize(CategoryInfo));
-            HttpContent content = new StringContent(jss.Serialize(CategoryInfo));
+            Debug.WriteLine(InformInfo.InfoData);
+            string url = "InformData/UpdateInform/" + id;
+            Debug.WriteLine(jss.Serialize(InformInfo));
+            HttpContent content = new StringContent(jss.Serialize(InformInfo));
             content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
             HttpResponseMessage response = client.PostAsync(url, content).Result;
-
+            Debug.WriteLine(response.StatusCode);
             if (response.IsSuccessStatusCode)
             {
-                return RedirectToAction("Details", new { Id = id });
+                return RedirectToAction("List", "Category");
             }
             else
             {
                 return RedirectToAction("Error");
             }
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns> (CHECKED)
-        // GET: Category/DeleteConfirm/1
+
+        // GET: Inform/Delete/5
         [HttpGet]
         public ActionResult DeleteConfirm(int id)
         {
-            string url = "CategoryData/FindCategory/" + id;
+            string url = "InformData/FindInform/" + id;
             HttpResponseMessage response = client.GetAsync(url).Result;
             //Can catch the status code (200 OK, 301 REDIRECT), etc.
-            Debug.WriteLine(response.StatusCode);
+            //Debug.WriteLine(response.StatusCode);
             if (response.IsSuccessStatusCode)
             {
-                CategoryDto SelectedCategory = response.Content.ReadAsAsync<CategoryDto>().Result;
-                return View(SelectedCategory);
+                InformDto SelectedInform = response.Content.ReadAsAsync<InformDto>().Result;
+                return View(SelectedInform);
             }
             else
             {
                 return RedirectToAction("Error");
             }
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns> (CHECKED)
-        // POST: Category/Delete/1
+
+        // POST: Inform/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken()]
         public ActionResult Delete(int id)
         {
-            string url = "CategoryData/DeleteCategory/" + id;
-            //post body is empty
+            string url = "InformData/DeleteInform/" + id;
             HttpContent content = new StringContent("");
             HttpResponseMessage response = client.PostAsync(url, content).Result;
             //Can catch the status code (200 OK, 301 REDIRECT), etc.
-            Debug.WriteLine(response.StatusCode);
+            //Debug.WriteLine(response.StatusCode);
             if (response.IsSuccessStatusCode)
             {
-                return RedirectToAction("List");
+                return RedirectToAction("List", "Category");
             }
             else
             {

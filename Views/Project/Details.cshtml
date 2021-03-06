@@ -6,28 +6,42 @@
 <h2>Project Details</h2>
 <hr />
 
+<div style="display:inline-block;">
+    <strong>
+        @Html.DisplayNameFor(model => model.Project.ProjectName)
+    </strong>
+    <p>
+        @Html.DisplayFor(model => model.Project.ProjectName)
+    </p>
+    <strong>
+        @Html.DisplayNameFor(model => model.Project.ProjectDate)
+    </strong>
+    <p>
+        @Html.DisplayFor(model => model.Project.ProjectDate)
+    </p>
+    <strong>
+        @Html.DisplayNameFor(model => model.Project.ProjectDescription)
+    </strong>
+    <p>
+        @Html.DisplayFor(model => model.Project.ProjectDescription)
+    </p>
+</div>
+<div style="float:right;">
 
-<dt>
-    @Html.DisplayNameFor(model => model.Project.ProjectName)
-</dt>
-<dd>
-    @Html.DisplayFor(model => model.Project.ProjectName)
-</dd>
-<dt>
-    @Html.DisplayNameFor(model => model.Project.ProjectDate)
-</dt>
-<dd>
-    @Html.DisplayFor(model => model.Project.ProjectDate)
-</dd>
-<dt>
-    @Html.DisplayNameFor(model => model.Project.ProjectDescription)
-</dt>
-<div>
-    @Html.DisplayFor(model => model.Project.ProjectDescription)
+    <p>
+        <a href="/Inform/Create" class="button btn btn-success">Add Extra Information</a>
+    </p>
+    @foreach(var item in Model.ProjectInforms)
+    {
+        <ul>
+            <li>@Html.ActionLink(item.InfoData, "Details", "Inform", new { id = item.InformID }, new { })</li>
+        </ul>
+    }
 </div>
 
 <div>
     @Html.ActionLink("Delete", "DeleteConfirm", new { id = Model.Project.ProjectID }, new { @class = "text-alert" }) |
     @Html.ActionLink("Edit", "Edit", new { id = Model.Project.ProjectID }, new { @class = "text-detail" }) |
+    
     @Html.ActionLink("Go Back", "List", "Category")
 </div>
