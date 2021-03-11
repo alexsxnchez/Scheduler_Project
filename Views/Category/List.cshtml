@@ -1,21 +1,20 @@
 ﻿@model IEnumerable<Scheduler_Project.Models.CategoryDto>
-
 @{
     ViewBag.Title = "List";
 }
 
-<h2>Category List</h2>
+<h2 class="text-center">Category List</h2>
 
 <p>
-    @Html.ActionLink("Add A Category", "Create", "Category", new { @class = "button btn btn-success" })
+    @Html.ActionLink("Add A Category", "Create", "Category", new { @class = "bttn-create" })
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.CategoryName)
+            @Html.DisplayNameFor(model => model.CategoryColor)
         </th>
         <th>
-            @Html.DisplayNameFor(model=> model.CategoryColor)
+            @Html.DisplayNameFor(model => model.CategoryName)
         </th>
         <th></th>
     </tr>
@@ -23,11 +22,9 @@
     @foreach (var item in Model)
     {
         <tr>
+            <td style="background-color:@Html.DisplayFor(modelItem => item.CategoryColor); width:5px;"></td>
             <td>
                 @Html.DisplayFor(modelItem => item.CategoryName)
-            </td>
-            <td style="background-color:@Html.DisplayFor(modelItem => item.CategoryColor); width:5px;">
-                
             </td>
             <td>
                 @Html.ActionLink("Update", "Edit", new { id = item.CategoryID }, new { @class = "text-success" }) |

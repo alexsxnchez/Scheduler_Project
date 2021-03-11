@@ -1,4 +1,5 @@
 ﻿body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 .header-display {
     padding-top: 30px;
@@ -43,6 +44,12 @@
     .text-alert:hover {
         color: #d00000;
     }
+
+.bttn-create{
+    border: thin solid green;
+    border-radius: 30%;
+    background-color: green;
+}
 .form-space {
     display: block;
     width: 100%;
@@ -116,6 +123,6 @@
     color: inherit;
     background-image: url(../Content/images/ab045c540e838496d5e77f82892bed14.jpg);
 }
-.move-right{
+.move-right {
     float:right;
 }
