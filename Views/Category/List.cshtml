@@ -6,13 +6,13 @@
 <h2 class="text-center">Category List</h2>
 
 <p>
-    @Html.ActionLink("Add A Category", "Create", "Category", new { @class = "bttn-create" })
+    @Html.ActionLink("Add A Category", "Create", "Category", new { @class = "btn button btn-success" })
 </p>
-<table class="table">
+<table class="table table-bordered">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.CategoryColor)
-        </th>
+        <th></th>
+        <th></th>
+        <th>#</th>
         <th>
             @Html.DisplayNameFor(model => model.CategoryName)
         </th>
@@ -22,14 +22,20 @@
     @foreach (var item in Model)
     {
         <tr>
-            <td style="background-color:@Html.DisplayFor(modelItem => item.CategoryColor); width:5px;"></td>
             <td>
+                @Html.ActionLink("UPDATE", "Edit", new { id = item.CategoryID }, new { @class = "text-success" })
+            </td>
+            <td>
+                @Html.ActionLink("DETAILS", "Details", new { id = item.CategoryID }, new { @class = "text-detail" })
+            </td>
+            <td style="background-color:@Html.DisplayFor(modelItem => item.CategoryColor); width:4%;">
+
+            </td>
+            <td style="width:80%; text-align:center;">
                 @Html.DisplayFor(modelItem => item.CategoryName)
             </td>
             <td>
-                @Html.ActionLink("Update", "Edit", new { id = item.CategoryID }, new { @class = "text-success" }) |
-                @Html.ActionLink("Details", "Details", new { id = item.CategoryID }, new { @class = "text-detail" }) |
-                @Html.ActionLink("Delete", "DeleteConfirm", new { id = item.CategoryID }, new { @class = "text-alert" })
+                @Html.ActionLink("DELETE", "DeleteConfirm", new { id = item.CategoryID }, new { @class = "text-alert" })
             </td>
         </tr>
     }

@@ -1,39 +1,59 @@
-﻿body {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+﻿:root {
+    /* Colors */
+    /*Navigation Bar*/
+    --tangyBlue: #417C91;
+    /*Menu & Expirience Bar Colours*/
+    --selectedBlue: #11151C;
+    --yellowGreenCrayola: #6B8D3F;
+    --blueMunsell: #2A758F;
+    --mediumAquamarine: #40A075;
+    --intenseOrange: #F48C06;
+    --intenseViolet: #4D194D;
+    --englishViolet: #5f2f5f;
+    --pastel: #7f5539;
 }
-.header-display {
-    padding-top: 30px;
-    padding-bottom: 30px;
+body {
+}
+/* Nav Bar */
+.navigation {
+    top: 0;
+    background: linear-gradient(45deg, var(--intenseOrange), var(--pastel));
+}
+.nav-color{
+    color: #FFF;
+}
+    .nav-color:hover {
+        color: #000;
+        background-color: none;
+    }
+/* Header Image */
+.headliner {
+    padding-top: 100px;
+    padding-bottom: 100px;
     margin-bottom: 30px;
-    color: inherit;
-    background-color: #faa307;
+    background-image: url(../Images/pexels-photo-5717428.jpeg);
+    background-position: -1200px -1000px;/* left-right; up-down; */
+    border-radius: 5px;
 }
+    .picked {
+        text-align: center;
+        color: white;
+        filter: drop-shadow(1px 6px 6px rgba(0,0,0,0.7));
+    }
+/* Footer */
+.footer {
+    background: linear-gradient(45deg, var(--pastel), var(--intenseOrange));
+    padding-top: 20px;
+    padding-bottom: 16px;
+}
+    .footer p{
+        padding-left: 2%;
+        color: #FFF;
+    }
 
-.nav-bar {
-    background-color: #f4a261;
-    color: #9d9d9d;
-}
-    .nav-bar a {
-        color: #fff;
+    .text-detail {
+        color: #4d194d;
     }
-        .nav-bar a:hover {
-            background-color: transparent;
-            color: #463f3a;
-        }
-    .nav-bar li a {
-        color: #fff;
-    }
-        .nav-bar li a:hover {
-            background-color: transparent;
-            color: #463f3a;
-        }
-        .icon-s{
-            color: #fff;
-            margin-top: 12px; 
-        }
-.text-detail {
-    color: #4d194d;
-}
     .text-detail:hover {
         color: #4d194d;
     }
@@ -125,4 +145,8 @@
 }
 .move-right {
     float:right;
+}
+.white-words{
+    color: white;
+
 }
