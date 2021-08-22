@@ -8,6 +8,7 @@
     @Scripts.Render("~/bundles/modernizr")
 
     <link rel="stylesheet" href="~/Content/markup.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
 </head>
@@ -23,7 +24,10 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav nav-color">
-                    <li>@Html.ActionLink("Scheduler App", "Index", "Home", new { area = "" }, new { @class = "navbar-nav nav-color" })</li>
+                    <li>
+                        <i class="fa fa-tasks"></i>
+                        @Html.ActionLink("Scheduler App", "Index", "Home", new { area = "" }, new { @class = "navbar-nav nav-color" })
+                    </li>
                     <li>@Html.ActionLink("Schedule List", "List", "Category", new { area = "" }, new { @class = "navbar-nav nav-color" })</li>
                 </ul>
                 @Html.Partial("_LoginPartial")

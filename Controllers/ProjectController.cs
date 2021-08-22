@@ -186,7 +186,7 @@ namespace Scheduler_Project.Controllers
             Debug.WriteLine(response.StatusCode);
             if (response.IsSuccessStatusCode)
             {
-                return RedirectToAction("Details", new { id = id });
+                return RedirectToAction("List", new { id = id });
             }
             else
             {

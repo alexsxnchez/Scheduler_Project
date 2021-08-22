@@ -1,21 +1,24 @@
 ﻿@model Scheduler_Project.Models.ViewModels.ShowCategory
-
+<link rel="stylesheet" href="~/Content/Category/category.css" type="text/css" />
 @{
     ViewBag.Title = "Details";
 }
 
-<h2>Category @Model.Category.CategoryName</h2>
-<span style="background-color:@Html.DisplayFor(model => model.Category.CategoryColor); border-radius:50%; display:block; content:''; height:30px; width:30px;"></span>
+<h2><span class="convert__black">Category</span> @Model.Category.CategoryName</h2>
+<span style="background-color:@Html.DisplayFor(model => model.Category.CategoryColor); border-radius:20%; display:block; content:''; height:30px; width:30px; border:thin solid white;" class="center-block"></span>
 
 <div>
-    <h4>Project Details</h4>
-    <p>
-        <a href="/Project/Create" class="button btn btn-success">Add A Project</a>
-    </p>
+    <p class="text-center">Project Details</p>
+    <div>
+        <p>
+            <a href="/Project/Create" class="add__button">Add A New Project</a>
+            @Html.ActionLink("Back to category list", "List", "Category", new { @class = "back__button" })
+        </p>
+    </div>
     <hr />
     
-    <table class="table table-bordered table-striped">
-        <thead>
+    <table class="fixed__list">
+        <thead class="thead">
             <tr>
                 <th>Project Name</th>
             </tr>
@@ -34,6 +37,3 @@
         }
     </table>
 </div>
-<p>
-    @Html.ActionLink("Back to List", "List")
-</p>

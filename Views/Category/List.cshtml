@@ -1,44 +1,56 @@
 ﻿@model IEnumerable<Scheduler_Project.Models.CategoryDto>
+<link rel="stylesheet" href="~/Content/Category/category.css" type="text/css"/>
 @{
     ViewBag.Title = "List";
 }
 
-<h2 class="text-center">Category List</h2>
+<h2>Category List</h2>
 
 <p>
-    @Html.ActionLink("Add A Category", "Create", "Category", new { @class = "btn button btn-success" })
+    @Html.ActionLink("Add A New Category", "Create", "Category", new { @class = "add__button" })
 </p>
-<table class="table table-bordered">
-    <tr>
-        <th></th>
-        <th></th>
-        <th>#</th>
-        <th>
-            @Html.DisplayNameFor(model => model.CategoryName)
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
+<table class="fixed__table">
+    <thead class="thead">
         <tr>
-            <td>
-                @Html.ActionLink("UPDATE", "Edit", new { id = item.CategoryID }, new { @class = "text-success" })
-            </td>
-            <td>
-                @Html.ActionLink("DETAILS", "Details", new { id = item.CategoryID }, new { @class = "text-detail" })
-            </td>
-            <td style="background-color:@Html.DisplayFor(modelItem => item.CategoryColor); width:4%;">
-
-            </td>
-            <td style="width:80%; text-align:center;">
-                @Html.DisplayFor(modelItem => item.CategoryName)
-            </td>
-            <td>
-                @Html.ActionLink("DELETE", "DeleteConfirm", new { id = item.CategoryID }, new { @class = "text-alert" })
-            </td>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
         </tr>
-    }
+    </thead>
+    <tbody class="tbody">
+        <tr>
+            <td>update</td>
+            <td>chosen color</td>
+            <td>chosen category</td>
+            <td>delete</td>
+        </tr>
 
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <!--Categroy Edit-->
+                <td>
+                    <div class="edit__button">
+                        <a href="/Category/Edit/@item.CategoryID"><i class='fa fa-edit'></i></a>
+                    </div>
+                </td>
+                <!--Category Color-->
+                <td>
+                    <div style="background-color:@Html.DisplayFor(modelItem => item.CategoryColor);" class="color__badge"></div>
+                </td>
+                <td>
+                    <div>
+                        <a href="/Category/Details/@item.CategoryID">@Html.DisplayFor(modelItem => item.CategoryName)</a>
+                    </div>
+                </td>
+                <td>
+                    @Html.ActionLink("x", "DeleteConfirm", new { id = item.CategoryID }, new { @class = "delete__button_circle" })
+                </td>
+            </tr>
+        }
+
+    </tbody>
 </table>
 

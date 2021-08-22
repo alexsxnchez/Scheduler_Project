@@ -233,15 +233,17 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Category\category.css" />
     <Content Include="Content\Content.css" />
     <Content Include="Content\markup.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Images\pexels-photo-5553929.jpeg" />
+    <Content Include="Images\pexels-photo-4271259.jpeg" />
+    <Content Include="Images\pexels-photo-5217428.jpeg" />
+    <Content Include="Images\pexels-photo-5417675.jpeg" />
     <Content Include="Images\pexels-photo-5717428.jpeg" />
-    <Content Include="Images\pexels-photo-733854.jpeg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Compile Include="App_Start\Startup.Athentication.cs" />
@@ -311,6 +313,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Home\" />
+    <Folder Include="Content\Inform\" />
+    <Folder Include="Content\Project\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

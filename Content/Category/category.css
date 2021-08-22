@@ -1,0 +1,152 @@
+﻿body {
+}
+h2 {
+    text-align: center;
+    color: white;
+    padding-top: 20px;
+}
+table {
+    display: table;
+    background-color: white;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.fixed__table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 50px;
+    text-align: center;
+    box-shadow: 0 0 20px black;
+}
+.fixed__table th {
+    text-align: center;
+    padding: 40px;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #0077b6;
+}
+.fixed__table th:first-child {
+    border-left: 1px solid #ddd;
+    border-right: 1px solid red;
+}
+.fixed__table th:last-child {
+    border-right: 1px solid #ddd;
+}
+.fixed__table td {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+.fixed__table td:first-child {
+    border-right: 1px solid red;
+}
+.fixed__list {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 50px;
+    text-align: center;
+    box-shadow: 0 0 20px black;
+}
+.fixed__list th {
+    text-align: center;
+    padding: 40px;
+    border-top: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #0077b6;
+}
+.fixed__list td {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+.color__badge {
+    content: "";
+    height: 20px;
+    width: 20px;
+    display: inline-block;
+    border-radius: 20%
+}
+.add__button {
+    color: #fff;
+    background-color: #54983a;
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: normal;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid white;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.add__button:hover {
+    background-color: #3c6d2a;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+.edit__button > a {
+    text-decoration: none;
+    color: #fCA311;
+}
+.edit__button > a > i {
+    font-size: 16pt;
+}
+.edit__button > a:hover {
+    color: #AF6D00;
+}
+.delete__button_circle {
+    background-color: #ffffff;
+    border: 2px solid #FF3E3E;
+    color: #FF3E3E;
+    padding: 5px 9px;
+    border-radius: 21px;
+}
+.delete__button_circle:hover {
+    border: none;
+    background-color: #FF3E3E;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+.back__button {
+    color: #fff;
+    background-color: #2d63c1;
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: normal;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid white;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.back__button:hover {
+    background-color: #21488c;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+
+.convert__black {
+    color: black;
+}
+.between {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
