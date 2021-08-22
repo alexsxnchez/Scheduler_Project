@@ -1,4 +1,4 @@
-## Welcome to my Scheduler Application
+# Welcome to my Scheduler Application
 This application is designed to help the user organize their tasks/projects through time setters.
 
 ## More Deeply
@@ -11,22 +11,22 @@ All data is sent to an internal database and is formed to allow the user to crea
 - Inform Database
 
 ## Images :
-# Main page
+### Main page
 ![An image of the main index page](https://github.com/alexsxnchez/Scheduler_Project/blob/main/Images/index.png)
-# Category List
+### Category List
 ![An image of the category list](https://github.com/alexsxnchez/Scheduler_Project/blob/main/Images/category-list.png)
-# Category Details
-# Category Add
-# Category Update
-# Category Delete
-# Project Details
-# Project Add
-# Project Update
-# Project Delete
-# Extra Info Details
-# Extra Info Add
-# Extra Info Update
-# Extra Info Delete
+### Category Details
+### Category Add
+### Category Update
+### Category Delete
+### Project Details
+### Project Add
+### Project Update
+### Project Delete
+### Extra Info Details
+### Extra Info Add
+### Extra Info Update
+### Extra Info Delete
 
 ## Feature Expectancies
 - Login Feature
