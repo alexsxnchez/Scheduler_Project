@@ -12,9 +12,9 @@ All data is sent to an internal database and is formed to allow the user to crea
 
 ## Images :
 # Main page
-![An image of the main index page](C:\Users\alexg\source\repos\Passion_Project\Scheduler_Project\Images\index.png)
+![An image of the main index page](https://github.com/alexsxnchez/Scheduler_Project/blob/main/Images/index.png)
 # Category List
-![An image of the category list](C:\Users\alexg\source\repos\Passion_Project\Scheduler_Project\Images\category-list.png)
+![An image of the category list](https://github.com/alexsxnchez/Scheduler_Project/blob/main/Images/category-list.png)
 # Category Details
 # Category Add
 # Category Update
