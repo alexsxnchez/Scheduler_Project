@@ -240,6 +240,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\category-list.png" />
+    <Content Include="Images\index.png" />
     <Content Include="Images\pexels-photo-4271259.jpeg" />
     <Content Include="Images\pexels-photo-5217428.jpeg" />
     <Content Include="Images\pexels-photo-5417675.jpeg" />
