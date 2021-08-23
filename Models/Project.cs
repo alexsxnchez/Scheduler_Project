@@ -29,14 +29,14 @@ namespace Scheduler_Project.Models
     public class ProjectDto
     {
         public int ProjectID { get; set; }
-        [DisplayName("Project Name")]
+        [DisplayName("Name")]
         public string ProjectName { get; set; }
         [DisplayName("Description")]
         public string ProjectDescription { get; set; }
-        [DisplayName("Project Time")]
+        [DisplayName("Time")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:hh:mm tt}")]
         public DateTime? ProjectTime { get; set; }
-        [DisplayName("Project Date")]
+        [DisplayName("Date")]
         public string ProjectDate { get; set; }
         [DisplayName("Category Id")]
         public int CategoryID { get; set; }

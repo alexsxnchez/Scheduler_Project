@@ -42,6 +42,7 @@ namespace Scheduler_Project.Controllers
                     ProjectName = Project.ProjectName,
                     ProjectDescription = Project.ProjectDescription,
                     ProjectDate = Project.ProjectDate,
+                    ProjectTime = Project.ProjectTime,
                     CategoryID = Project.CategoryID
                 };
                 ProjectDtos.Add(NewProject);
@@ -74,6 +75,7 @@ namespace Scheduler_Project.Controllers
                 ProjectName = Project.ProjectName,
                 ProjectDescription = Project.ProjectDescription,
                 ProjectDate = Project.ProjectDate,
+                ProjectTime = Project.ProjectTime,
                 CategoryID = Project.CategoryID
             };
             return Ok(ProjectDto);
