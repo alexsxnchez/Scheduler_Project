@@ -2,7 +2,7 @@
 }
 h2 {
     text-align: center;
-    color: white;
+    color: black;
     padding-top: 20px;
 }
 table {
@@ -65,6 +65,20 @@ table {
     width: 20px;
     display: inline-block;
     border-radius: 20%
+}
+.select__button {
+    border-radius: 10px 10px 0 0;
+    background: rgba(239, 239, 239, 0.8);
+    color: black;
+    border: thin solid #ddd;
+    border-bottom: none;
+    padding: 4px 8px;
+}
+.select__button:hover {
+    background: white;
+}
+.select__button:active {
+    background: #ddd;
 }
 .add__button {
     color: #fff;
@@ -134,7 +148,6 @@ table {
     -ms-user-select: none;
     user-select: none;
 }
-
 .back__button:hover {
     background-color: #21488c;
     color: #FFFFFF;
@@ -142,11 +155,24 @@ table {
 }
 
 
-.convert__black {
-    color: black;
+.convert__white {
+    color: white;
 }
 .between {
     width: 100%;
     display: flex;
     justify-content: space-between;
+}
+.row__evenly {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    width: 100%;
+    border: thin solid black;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+.row__evenly > p {
+    margin: 0;
+    padding: 10px;
 }

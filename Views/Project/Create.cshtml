@@ -1,5 +1,5 @@
 ﻿@model Scheduler_Project.Models.ViewModels.UpdateProject
-
+<link rel="stylesheet" href="~/Content/Category/category.css" type="text/css" />
 @{
     ViewBag.Title = "Create";
 }
@@ -18,7 +18,7 @@
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 <div class="row">
-
+    <!--Project Name-->
     <div class="form-group">
         @Html.LabelFor(model => model.Project.ProjectName, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
@@ -26,23 +26,30 @@
             @Html.ValidationMessageFor(model => model.Project.ProjectName, "", new { @class = "text-danger" })
         </div>
     </div>
-
+    <!--Project Date-->
     <div class="form-group">
-        @Html.LabelFor(model => model.Project.ProjectDescription, htmlAttributes: new { @class = "control-label col-md-2" })
+        <label class="control-label col-md-2">Project Date</label>
         <div class="col-md-10">
-            @Html.EditorFor(model => model.Project.ProjectDescription, new { htmlAttributes = new { @class = "form-space-bg", Name = "ProjectDescription", @rows = 5, @cols = 33 } })
-            @Html.ValidationMessageFor(model => model.Project.ProjectDescription, "", new { @class = "text-danger" })
+            <select name="ProjectDate">
+                <option value="Monday">Monday</option>
+                <option value="Tuesday">Tuesday</option>
+                <option value="Wednesday">Wednesday</option>
+                <option value="Thursday">Thursday</option>
+                <option value="Friday">Friday</option>
+                <option value="Saturday">Saturday</option>a
+                <option value="Sunday">Sunday</option>
+            </select>
         </div>
     </div>
-
+    <!--Project Time-->
     <div class="form-group">
         @Html.LabelFor(model => model.Project.ProjectDate, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.Project.ProjectDate, new { htmlAttributes = new { @class = "form-space", Name = "ProjectDate"} })
+            @Html.EditorFor(model => model.Project.ProjectDate, new { htmlAttributes = new { @class = "form-space", Name = "ProjectDate" } })
             @Html.ValidationMessageFor(model => model.Project.ProjectDate, "", new { @class = "text-danger" })
         </div>
     </div>
-
+    <!--Category-->
     <div class="form-group">
         @Html.LabelFor(model => model.Project.CategoryID, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
@@ -54,16 +61,24 @@
             </select>
         </div>
     </div>
+    <!--Project Description-->
+    <div class="form-group">
+        @Html.LabelFor(model => model.Project.ProjectDescription, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Project.ProjectDescription, new { htmlAttributes = new { @class = "form-space-bg", Name = "ProjectDescription", @rows = 5, @cols = 33 } })
+            @Html.ValidationMessageFor(model => model.Project.ProjectDescription, "", new { @class = "text-danger" })
+        </div>
+    </div>
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Create" class="button btn btn-success" />
+            <input type="submit" value="Create" class="add__button" />
         </div>
     </div>
 </div>
 </div>
 }
-<a href="javascript:void(0);" onclick="history.go(-1);">Back to Details</a>
+<a class="back__button" href="javascript:void(0);" onclick="history.go(-1);">Back to Details</a>
 <div>
     <!--@Html.ActionLink("Back to List", "List", "Category")-->
 </div>

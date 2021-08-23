@@ -1,0 +1,84 @@
+﻿body {
+}
+h2 {
+    text-align: center;
+    color: black;
+    padding-top: 20px;
+}
+.edit__button {
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #fCA311;
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: normal;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid white;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.pname {
+    background: white;
+    border-radius: 5px;
+    margin: 10px;
+}
+.pdate {
+    background: white;
+    border-radius: 5px;
+    margin: 10px;
+}
+.ptime {
+    background: white;
+    border-radius: 5px;
+    margin: 10px;
+}
+.pdescription {
+    background: white;
+    border-radius: 5px;
+    margin: 10px;
+}
+.portion__column {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+}
+.portion__row {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.convert__white {
+    color: white;
+}
+
+.between {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.row__evenly {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    width: 100%;
+    border: thin solid black;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.row__evenly > p {
+    margin: 0;
+    padding: 10px;
+}

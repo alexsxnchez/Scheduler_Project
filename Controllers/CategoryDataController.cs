@@ -81,7 +81,7 @@ namespace Scheduler_Project.Controllers
         [ResponseType(typeof(IEnumerable<ProjectDto>))]
         public IHttpActionResult GetProjectForCategory(int id)
         {
-            List<Project> Projects = db.Projects.Where(t => t.CategoryID == id)
+            List<Project> Projects = db.Projects.Where(t => t.CategoryID == id).OrderBy(x => x.ProjectTime)
                 .ToList();
             List<ProjectDto> ProjectDtos = new List<ProjectDto> { };
 
@@ -93,6 +93,7 @@ namespace Scheduler_Project.Controllers
                     ProjectName = Project.ProjectName,
                     ProjectDescription = Project.ProjectDescription,
                     ProjectDate = Project.ProjectDate,
+                    ProjectTime = Project.ProjectTime,
                     CategoryID = Project.CategoryID
                 };
                 ProjectDtos.Add(NewProject);

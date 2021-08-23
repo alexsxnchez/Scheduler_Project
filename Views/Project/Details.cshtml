@@ -1,47 +1,65 @@
 ﻿@model Scheduler_Project.Models.ViewModels.ShowProject
+<link rel="stylesheet" href="~/Content/Project/project.css" type="text/css" />
 @{
     ViewBag.Title = "Details";
 }
 
-<h2>Project Details</h2>
+<h2><span class="convert__white">Project : </span> @Html.DisplayFor(model => model.Project.ProjectName)</h2>
 <hr />
 
 <div style="display:inline-block;">
-    <strong>
-        @Html.DisplayNameFor(model => model.Project.ProjectName)
-    </strong>
-    <p>
-        @Html.DisplayFor(model => model.Project.ProjectName)
-    </p>
-    <strong>
-        @Html.DisplayNameFor(model => model.Project.ProjectDate)
-    </strong>
-    <p>
-        @Html.DisplayFor(model => model.Project.ProjectDate)
-    </p>
-    <strong>
-        @Html.DisplayNameFor(model => model.Project.ProjectDescription)
-    </strong>
-    <p>
-        @Html.DisplayFor(model => model.Project.ProjectDescription)
-    </p>
-</div>
-<div style="float:right;">
-
-    <p>
-        <a href="/Inform/Create" class="button btn btn-success">Add Extra Information</a>
-    </p>
-    @foreach(var item in Model.ProjectInforms)
-    {
-        <ul>
-            <li>@Html.ActionLink(item.InfoData, "Details", "Inform", new { id = item.InformID }, new { })</li>
-        </ul>
-    }
+    <div class="portion__row">
+        <div class="portion__column">
+            <div class="pname">
+                <h4>
+                    @Html.DisplayNameFor(model => model.Project.ProjectName)
+                </h4>
+                <p>
+                    @Html.DisplayFor(model => model.Project.ProjectName)
+                </p>
+            </div>
+            <div class="pdate">
+                <h4>
+                    @Html.DisplayNameFor(model => model.Project.ProjectDate)
+                </h4>
+                <p>
+                    @Html.DisplayFor(model => model.Project.ProjectDate)
+                </p>
+            </div>
+            <div class="ptime">
+                <h4>
+                    @Html.DisplayNameFor(model => model.Project.ProjectTime)
+                </h4>
+                <p>
+                    @Html.DisplayFor(model => model.Project.ProjectTime)
+                </p>
+            </div>
+        </div>
+        <div>
+            <div class="pdescription">
+                <h4>
+                    @Html.DisplayNameFor(model => model.Project.ProjectDescription)
+                </h4>
+                <p>
+                    @Html.DisplayFor(model => model.Project.ProjectDescription)
+                </p>
+            </div>
+            <p>
+                <a href="/Inform/Create" class="button btn btn-success">Add Extra Information</a>
+            </p>
+            @foreach (var item in Model.ProjectInforms)
+            {
+                <ul>
+                    <li>@Html.ActionLink(item.InfoData, "Details", "Inform", new { id = item.InformID }, new { })</li>
+                </ul>
+            }
+        </div>
+    </div>
 </div>
 
 <div>
     @Html.ActionLink("Delete", "DeleteConfirm", new { id = Model.Project.ProjectID }, new { @class = "text-alert" }) |
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Project.ProjectID }, new { @class = "text-detail" }) |
-    
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Project.ProjectID }, new { @class = "edit__button " }) |
+
     @Html.ActionLink("Go Back", "List", "Category")
 </div>

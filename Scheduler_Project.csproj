@@ -213,6 +213,14 @@
     <Compile Include="Migrations\202103052049558_initial-6.Designer.cs">
       <DependentUpon>202103052049558_initial-6.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202108221717254_initial-7.cs" />
+    <Compile Include="Migrations\202108221717254_initial-7.Designer.cs">
+      <DependentUpon>202108221717254_initial-7.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108222149356_initial-8.cs" />
+    <Compile Include="Migrations\202108222149356_initial-8.Designer.cs">
+      <DependentUpon>202108222149356_initial-8.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Inform.cs" />
@@ -236,6 +244,7 @@
     <Content Include="Content\Category\category.css" />
     <Content Include="Content\Content.css" />
     <Content Include="Content\markup.css" />
+    <Content Include="Content\Project\project.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -259,6 +268,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\Library\main.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -317,7 +327,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Content\Home\" />
     <Folder Include="Content\Inform\" />
-    <Folder Include="Content\Project\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -353,6 +362,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202103052049558_initial-6.resx">
       <DependentUpon>202103052049558_initial-6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108221717254_initial-7.resx">
+      <DependentUpon>202108221717254_initial-7.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108222149356_initial-8.resx">
+      <DependentUpon>202108222149356_initial-8.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

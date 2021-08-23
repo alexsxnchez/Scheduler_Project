@@ -13,7 +13,7 @@
     --pastel: #7f5539;
 }
 body {
-    background: linear-gradient(45deg, #a5a5a5, #95cfda);
+    background: linear-gradient(45deg, #a5a5a5, #f7fdff);
 }
 /* Nav Bar */
 .navigation {

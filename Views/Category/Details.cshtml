@@ -4,36 +4,111 @@
     ViewBag.Title = "Details";
 }
 
-<h2><span class="convert__black">Category</span> @Model.Category.CategoryName</h2>
+<h2><span class="convert__white">Category</span> @Model.Category.CategoryName</h2>
 <span style="background-color:@Html.DisplayFor(model => model.Category.CategoryColor); border-radius:20%; display:block; content:''; height:30px; width:30px; border:thin solid white;" class="center-block"></span>
 
 <div>
-    <p class="text-center">Project Details</p>
+    <p class="text-center">-</p>
+    <div class="row__evenly">
+        <p class="text-center">&#9728; : Mornning</p>
+        <p class="text-center">&#9729; : Noon</p>
+        <p class="text-center">&#10047; : Afternoon</p>
+        <p class="text-center">&#9733; : Evening</p>
+        <p class="text-center">&#9790; : Night</p>
+    </div>
     <div>
         <p>
             <a href="/Project/Create" class="add__button">Add A New Project</a>
-            @Html.ActionLink("Back to category list", "List", "Category", new { @class = "back__button" })
+            @Html.ActionLink("Back To Category List", "List", "Category", new { @class = "back__button" })
         </p>
     </div>
     <hr />
-    
+    <div>
+        <button class="select__button" id="active__1">Monday</button>
+        <button class="select__button" id="active__2">Tuesday</button>
+        <button class="select__button" id="active__3">Wednesday</button>
+        <button class="select__button" id="active__4">Thursday</button>
+        <button class="select__button" id="active__5">Friday</button>
+        <button class="select__button" id="active__6">Saturday</button>
+        <button class="select__button" id="active__7">Sunday</button>
+    </div>
+
     <table class="fixed__list">
         <thead class="thead">
             <tr>
-                <th>Project Name</th>
+                <th></th>
+                <th><u>date</u></th>
+                <th><u>time</u></th>
+                <th><u>title</u></th>
+                <th><u>delete</u></th>
             </tr>
         </thead>
-        @foreach (var project in Model.CategoryProjects)
-        {
+        <tbody>
 
-            <tbody>
+            @foreach (var project in Model.CategoryProjects)
+            {
                 <tr>
+
+                    @if (project.ProjectTime >= Convert.ToDateTime("12:00 AM") && project.ProjectTime <= Convert.ToDateTime("04:59 AM"))
+                    {
+                        <td style="background:#74abd8;color:white;">
+                            <div>&#9728;</div>
+                        </td>
+                    }
+                    @if (project.ProjectTime >= Convert.ToDateTime("05:00 AM") && project.ProjectTime <= Convert.ToDateTime("11:59 AM"))
+                    {
+                        <td style="background:#6bca64;color:white;">
+                            <div>&#9729;</div>
+                        </td>
+                    }
+                    @if (project.ProjectTime >= Convert.ToDateTime("12:00 PM") && project.ProjectTime <= Convert.ToDateTime("04:59 PM"))
+                    {
+                        <td style="background:#e8be4e;color:white;">
+                            <div>&#10047;</div>
+                        </td>
+                    }
+                    @if (project.ProjectTime >= Convert.ToDateTime("05:00 PM") && project.ProjectTime <= Convert.ToDateTime("08:59 PM"))
+                    {
+                        <td style="background:#ca79a7;color:white;">
+                            <div>&#9733;</div>
+                        </td>
+                    }
+                    @if (project.ProjectTime >= Convert.ToDateTime("09:00 PM") && project.ProjectTime <= Convert.ToDateTime("11:59 PM"))
+                    {
+                        <td style="background:#565188;color:white;">
+                            <div>&#9790;</div>
+                        </td>
+                    }
+                    else {
+                        <td>
+                            <div>None</div>
+                        </td>
+                    }
+                    <td>
+                        <div>
+                            @Html.DisplayFor(modelItem => project.ProjectDate)
+                        </div>
+                    </td>
+                    <td>
+                        <div id="time__date">
+                            @Html.DisplayFor(modelItem => project.ProjectTime)
+                        </div>
+                    </td>
                     <td>
                         @Html.ActionLink(project.ProjectName, "Details", "Project", new { id = project.ProjectID }, new { })
                     </td>
+                    <td>
+                        @Html.ActionLink("x", "DeleteConfirm", "Project", new { id = project.ProjectID }, new { @class = "delete__button_circle" })
+                    </td>
                 </tr>
-            </tbody>
 
-        }
+            }
+        </tbody>
     </table>
 </div>
+
+<!--
+    [ To Do ]
+    - Make sure that once a time is book, it can no loger be booked again until deleted
+    - Selection on daytime to match the schedule
+-->
