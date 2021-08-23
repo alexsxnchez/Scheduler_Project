@@ -249,12 +249,14 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\category-details.png" />
     <Content Include="Images\category-list.png" />
     <Content Include="Images\index.png" />
     <Content Include="Images\pexels-photo-4271259.jpeg" />
     <Content Include="Images\pexels-photo-5217428.jpeg" />
     <Content Include="Images\pexels-photo-5417675.jpeg" />
     <Content Include="Images\pexels-photo-5717428.jpeg" />
+    <Content Include="Images\project-details.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Compile Include="App_Start\Startup.Athentication.cs" />
