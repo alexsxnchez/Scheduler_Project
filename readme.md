@@ -16,10 +16,12 @@ All data is sent to an internal database and is formed to allow the user to crea
 ### Category List
 ![An image of the category list](https://github.com/alexsxnchez/Scheduler_Project/blob/main/Images/category-list.png)
 ### Category Details
+![An image of the category details](https://github.com/alexsxnchez/Scheduler_Project/blob/main/Images/category-details.png)
 ### Category Add
 ### Category Update
 ### Category Delete
 ### Project Details
+![An image of the project details](https://github.com/alexsxnchez/Scheduler_Project/blob/main/Images/project-details.png)
 ### Project Add
 ### Project Update
 ### Project Delete
