@@ -18,16 +18,15 @@ All data is sent to an internal database and is formed to allow the user to crea
 
 | Category Details | Category Add |
 | --- | --- |
-![An image of the category details](https://github.com/alexsxnchez/Scheduler_Project/blob/main/Images/category-details.png) |
-![An image of the category add](https://github.com/alexsxnchez/Scheduler_Project/blob/main/Images/category-add.png) |
+| ![An image of the category details](https://github.com/alexsxnchez/Scheduler_Project/blob/main/Images/category-details.png) | ![An image of the category add](https://github.com/alexsxnchez/Scheduler_Project/blob/main/Images/category-add.png) |
 
 | Category Update | Category Delete |
 | --- | --- |
-![An image of the category update](https://github.com/alexsxnchez/Scheduler_Project/blob/main/Images/category-edit.png) | ![An image of the category delete confirm](https://github.com/alexsxnchez/Scheduler_Project/blob/main/Images/category-delete.png) |
+| ![An image of the category update](https://github.com/alexsxnchez/Scheduler_Project/blob/main/Images/category-edit.png) | ![An image of the category delete confirm](https://github.com/alexsxnchez/Scheduler_Project/blob/main/Images/category-delete.png) |
 
 | Project Details | Project Add |
 | --- | --- |
-![An image of the project details](https://github.com/alexsxnchez/Scheduler_Project/blob/main/Images/project-details.png) | ![]() |
+| ![An image of the project details](https://github.com/alexsxnchez/Scheduler_Project/blob/main/Images/project-details.png) | ![]() |
 
 ### Project Update | ### Project Delete
 
