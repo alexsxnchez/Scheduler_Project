@@ -43,10 +43,10 @@
     </div>
     <!--Project Time-->
     <div class="form-group">
-        @Html.LabelFor(model => model.Project.ProjectDate, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.Project.ProjectTime, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.Project.ProjectDate, new { htmlAttributes = new { @class = "form-space", Name = "ProjectDate" } })
-            @Html.ValidationMessageFor(model => model.Project.ProjectDate, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.Project.ProjectTime, new { htmlAttributes = new { @class = "form-space", Name = "ProjectTime" } })
+            @Html.ValidationMessageFor(model => model.Project.ProjectTime, "", new { @class = "text-danger" })
         </div>
     </div>
     <!--Category-->

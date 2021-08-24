@@ -28,12 +28,9 @@ All data is sent to an internal database and is formed to allow the user to crea
 | --- | --- |
 | ![An image of the project details](https://github.com/alexsxnchez/Scheduler_Project/blob/main/Images/project-details.png) | ![]() |
 
-### Project Update | ### Project Delete
-
-### Extra Info Details
-### Extra Info Add
-### Extra Info Update
-### Extra Info Delete
+| Project Update | Project Delete |
+| --- | --- |
+| ![]() | ![]() |
 
 ## Feature Expectancies
 - Login Feature

@@ -258,7 +258,10 @@
     <Content Include="Images\pexels-photo-4271259.jpeg" />
     <Content Include="Images\pexels-photo-5417675.jpeg" />
     <Content Include="Images\pexels-photo-5717428.jpeg" />
+    <Content Include="Images\project-add.png" />
+    <Content Include="Images\project-delete.png" />
     <Content Include="Images\project-details.png" />
+    <Content Include="Images\project-edit.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Compile Include="App_Start\Startup.Athentication.cs" />
