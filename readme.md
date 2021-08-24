@@ -19,7 +19,6 @@ All data is sent to an internal database and is formed to allow the user to crea
 | --- | --- |
 | ![An image of the category details](https://github.com/alexsxnchez/Scheduler_Project/blob/main/Images/category-details.png) |
 ![]() |
-
 | Category Update | ### Category Delete |
 | --- | --- |
 ![]() | ![]() |
