@@ -1,17 +1,16 @@
 ﻿@model Scheduler_Project.Models.CategoryDto
-
+<link rel="stylesheet" href="~/Content/Category/category.css" type="text/css" />
 @{
     ViewBag.Title = "View";
 }
 
-<h2>Update</h2>
+<h2>Update "@Html.DisplayFor(model => model.CategoryName)" Category</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>Category</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.CategoryID)
@@ -34,12 +33,12 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-success" />
+                <input type="submit" value="Save" class="add__button" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "List")
+    @Html.ActionLink("Back to List", "List", "Category", new { @class = "back__button" })
 </div>
