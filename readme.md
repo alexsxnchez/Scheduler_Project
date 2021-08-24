@@ -26,11 +26,11 @@ All data is sent to an internal database and is formed to allow the user to crea
 
 | Project Details | Project Add |
 | --- | --- |
-| ![An image of the project details](https://github.com/alexsxnchez/Scheduler_Project/blob/main/Images/project-details.png) | ![]() |
+| ![An image of the project details](https://github.com/alexsxnchez/Scheduler_Project/blob/main/Images/project-details.png) | ![An image of the project add](https://github.com/alexsxnchez/Scheduler_Project/blob/main/Images/project-add.png) |
 
 | Project Update | Project Delete |
 | --- | --- |
-| ![]() | ![]() |
+| ![An image of the project update](https://github.com/alexsxnchez/Scheduler_Project/blob/main/Images/project-edit.png) | ![An image of the project delete](https://github.com/alexsxnchez/Scheduler_Project/blob/main/Images/project-delete.png) |
 
 ## Feature Expectancies
 - Login Feature
