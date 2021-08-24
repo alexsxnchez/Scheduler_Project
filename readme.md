@@ -15,11 +15,13 @@ All data is sent to an internal database and is formed to allow the user to crea
 ![An image of the main index page](https://github.com/alexsxnchez/Scheduler_Project/blob/main/Images/index.png)
 ### Category List
 ![An image of the category list](https://github.com/alexsxnchez/Scheduler_Project/blob/main/Images/category-list.png)
+
 | Category Details | Category Add |
 | --- | --- |
 | ![An image of the category details](https://github.com/alexsxnchez/Scheduler_Project/blob/main/Images/category-details.png) |
 ![An image of the category add](https://github.com/alexsxnchez/Scheduler_Project/blob/main/Images/category-add.png) |
-| Category Update | ### Category Delete |
+
+| Category Update | Category Delete |
 | --- | --- |
 ![An image of the category update](https://github.com/alexsxnchez/Scheduler_Project/blob/main/Images/category-edit.png) | ![An image of the category delete confirm](https://github.com/alexsxnchez/Scheduler_Project/blob/main/Images/category-delete.png) |
 
