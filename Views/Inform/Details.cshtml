@@ -1,39 +1,58 @@
 ﻿@model Scheduler_Project.Models.ViewModels.ShowInform
+<link rel="stylesheet" href="~/Content/Inform/inform.css" type="text/css" />
 @{
     ViewBag.Title = "Details";
 }
 
-<h2>Inform Details</h2>
+<h2><span class="convert__white">Inform Reminder : </span>@Html.DisplayFor(model => model.Inform.InfoData)</h2>
 <hr />
 
-
-<dt>
-    @Html.DisplayNameFor(model => model.Inform.InfoData)
-</dt>
-<dd>
-    @Html.DisplayFor(model => model.Inform.InfoData)
-</dd>
-<dt>
-    @Html.DisplayNameFor(model => model.Inform.InfoPhoneNumber)
-</dt>
-<dd>
-    @Html.DisplayFor(model => model.Inform.InfoPhoneNumber)
-</dd>
-<dt>
-    @Html.DisplayNameFor(model => model.Inform.InfoEmail)
-</dt>
-<div>
-    @Html.DisplayFor(model => model.Inform.InfoEmail)
+<div style="display:inline-block;" class="portion__all">
+    <div class="portion__row">
+        @if (Model.Inform.InfoPhoneNumber != null)
+        {
+            <div class="project__item">
+                <h4 style="color:#4f6b43;">
+                    @Html.DisplayNameFor(model => model.Inform.InfoPhoneNumber):
+                </h4>
+                <p>
+                    <i class="fa fa-phone-square"></i> <a href="tel:@Html.DisplayFor(model => model.Inform.InfoPhoneNumber)" target="_blank">
+                        @Html.DisplayFor(model => model.Inform.InfoPhoneNumber)
+                    </a>
+                </p>
+            </div>
+        }
+        @if (Model.Inform.InfoEmail != null)
+        {
+            <div class="project__item">
+                <h4 style="color:#4f6b43;">
+                    @Html.DisplayNameFor(model => model.Inform.InfoEmail):
+                </h4>
+                <p>
+                    <i class="fa fa-envelope"></i> <a href="mailto:@Html.DisplayFor(model => model.Inform.InfoEmail)" target="_blank">
+                        @Html.DisplayFor(model => model.Inform.InfoEmail)
+                    </a>
+                </p>
+            </div>
+        }
+        @if (Model.Inform.InfoUrl != null)
+        {
+            <div class="project__item">
+                <h4 style="color:#4f6b43;">
+                    @Html.DisplayNameFor(model => model.Inform.InfoUrl):
+                </h4>
+                <p>
+                    <i class="fa fa-link"></i> <a href="@Html.DisplayFor(model => model.Inform.InfoUrl)" target="_blank">
+                        @Html.DisplayFor(model => model.Inform.InfoUrl)
+                    </a>
+                </p>
+            </div>
+        }
+       </div>
 </div>
-<dt>
-    @Html.DisplayNameFor(model => model.Inform.InfoUrl)
-</dt>
-<div>
-    @Html.DisplayFor(model => model.Inform.InfoUrl)
-</div>
 
 <div>
-    @Html.ActionLink("Delete", "DeleteConfirm", new { id = Model.Inform.InformID }, new { @class = "text-alert" }) |
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Inform.InformID }, new { @class = "text-detail" }) |
-    @Html.ActionLink("Go Back", "List", "Category")
+    @Html.ActionLink("Delete Information", "DeleteConfirm", new { id = Model.Inform.InformID }, new { @class = "delete__button" })
+    @Html.ActionLink("Edit Information", "Edit", new { id = Model.Inform.InformID }, new { @class = "edit__button" })
+    @Html.ActionLink("Go Back To Project", "Details", "Project", new { id = Model.Inform.ProjectID }, new { @class = "back__button" })
 </div>

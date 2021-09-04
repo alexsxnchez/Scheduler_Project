@@ -14,7 +14,7 @@
         <p class="text-center">&#9729; : Noon</p>
         <p class="text-center">&#10047; : Afternoon</p>
         <p class="text-center">&#9733; : Evening</p>
-        <p class="text-center">&#9790; : Night</p>
+        <p class="text-center">&#9790; : Night Time</p>
     </div>
     <div>
         <p>
@@ -48,32 +48,31 @@
             @foreach (var project in Model.CategoryProjects)
             {
                 <tr>
-
-                    @if (project.ProjectTime >= Convert.ToDateTime("12:00 AM") && project.ProjectTime <= Convert.ToDateTime("04:59 AM"))
+                    @if (project.ProjectTime >= new TimeSpan(0, 0, 0) && project.ProjectTime <= new TimeSpan(4, 59, 0))
                     {
-                        <td style="background:#74abd8;color:white;">
+                        <td style="background:#74b0d8;color:white;">
                             <div>&#9728;</div>
                         </td>
                     }
-                    @if (project.ProjectTime >= Convert.ToDateTime("05:00 AM") && project.ProjectTime <= Convert.ToDateTime("11:59 AM"))
+                    @if (project.ProjectTime >= new TimeSpan(5, 0, 0) && project.ProjectTime <= new TimeSpan(11, 59, 0))
                     {
                         <td style="background:#6bca64;color:white;">
                             <div>&#9729;</div>
                         </td>
                     }
-                    @if (project.ProjectTime >= Convert.ToDateTime("12:00 PM") && project.ProjectTime <= Convert.ToDateTime("04:59 PM"))
+                    @if (project.ProjectTime >= new TimeSpan(12, 0, 0) && project.ProjectTime <= new TimeSpan(16, 59, 0))
                     {
                         <td style="background:#e8be4e;color:white;">
                             <div>&#10047;</div>
                         </td>
                     }
-                    @if (project.ProjectTime >= Convert.ToDateTime("05:00 PM") && project.ProjectTime <= Convert.ToDateTime("08:59 PM"))
+                    @if (project.ProjectTime >= new TimeSpan(17, 0, 0) && project.ProjectTime <= new TimeSpan(20, 59, 0))
                     {
-                        <td style="background:#ca79a7;color:white;">
+                        <td style="background:#d2955a;color:white;">
                             <div>&#9733;</div>
                         </td>
                     }
-                    @if (project.ProjectTime >= Convert.ToDateTime("09:00 PM") && project.ProjectTime <= Convert.ToDateTime("11:59 PM"))
+                    @if (project.ProjectTime >= new TimeSpan(21, 0, 0) && project.ProjectTime <= new TimeSpan(23, 59, 0))
                     {
                         <td style="background:#565188;color:white;">
                             <div>&#9790;</div>

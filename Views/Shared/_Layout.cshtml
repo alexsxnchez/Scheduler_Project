@@ -27,8 +27,11 @@
                     <li>
                         @Html.ActionLink("Scheduler App", "Index", "Home", new { area = "" }, new { @class = "navbar-nav nav-color" })
                     </li>
-                    <li>@Html.ActionLink("Schedule List", "List", "Category", new { area = "" }, new { @class = "navbar-nav nav-color" })</li>
-                </ul>
+                    <!--if (User.IsInRole("Admin"))
+                    {-->
+                        <li>@Html.ActionLink("Schedule List", "List", "Category", new { area = "" }, new { @class = "navbar-nav nav-color" })</li>
+                    <!--}-->
+                    </ul>
                 @Html.Partial("_LoginPartial")
             </div>
         </div>

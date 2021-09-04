@@ -4,23 +4,23 @@
     ViewBag.Title = "Details";
 }
 
-<h2><span class="convert__white">Project : </span> @Html.DisplayFor(model => model.Project.ProjectName)</h2>
+<h2><span class="convert__white">Project : </span>@Html.DisplayFor(model => model.Project.ProjectName)</h2>
 <hr />
 
 <div style="display:inline-block;" class="portion__all">
     <div class="portion__row">
-        <div class="portion__column">
+        <div>
             <div class="project__item">
-                <h4>
-                    <u>@Html.DisplayNameFor(model => model.Project.ProjectDate)</u>
+                <h4 style="color:#4f6b43;">
+                    @Html.DisplayNameFor(model => model.Project.ProjectDate):
                 </h4>
                 <p>
                     @Html.DisplayFor(model => model.Project.ProjectDate)
                 </p>
             </div>
             <div class="project__item">
-                <h4>
-                    <u>@Html.DisplayNameFor(model => model.Project.ProjectDescription)</u>
+                <h4 style="color:#4f6b43;">
+                    @Html.DisplayNameFor(model => model.Project.ProjectDescription):
                 </h4>
                 <p>
                     @Html.DisplayFor(model => model.Project.ProjectDescription)
@@ -29,8 +29,8 @@
         </div>
         <div>
             <div class="project__item">
-                <h4>
-                    <u>@Html.DisplayNameFor(model => model.Project.ProjectTime)</u>
+                <h4 style="color:#4f6b43;">
+                    @Html.DisplayNameFor(model => model.Project.ProjectTime):
                 </h4>
                 <p>
                     @Html.DisplayFor(model => model.Project.ProjectTime)
@@ -38,8 +38,11 @@
             </div>
             <div class="project__item">
                 <p>
-                    <a href="/Inform/Create" class="add__button">Add Extra Information</a>
+                    <a href="/Inform/Create" class="add__button">Add Extra Details</a>
                 </p>
+                <h4 style="color:#4f6b43;">
+                    List:
+                </h4>
                 @foreach (var item in Model.ProjectInforms)
                 {
                     <ul>
@@ -52,8 +55,7 @@
 </div>
 
 <div>
-    @Html.ActionLink("Delete", "DeleteConfirm", new { id = Model.Project.ProjectID }, new { @class = "delete__button" }) |
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Project.ProjectID }, new { @class = "edit__button" }) |
-
-    @Html.ActionLink("Go Back", "List", "Category", new { @class = "back__button" })
+    @Html.ActionLink("Delete Project", "DeleteConfirm", new { id = Model.Project.ProjectID }, new { @class = "delete__button" })
+    @Html.ActionLink("Edit Project", "Edit", new { id = Model.Project.ProjectID }, new { @class = "edit__button" })
+    @Html.ActionLink("Go Back To Category", "Details", "Category", new { id = Model.Project.CategoryID }, new { @class = "back__button" })
 </div>

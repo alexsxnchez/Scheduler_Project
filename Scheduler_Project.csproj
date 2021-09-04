@@ -221,12 +221,17 @@
     <Compile Include="Migrations\202108222149356_initial-8.Designer.cs">
       <DependentUpon>202108222149356_initial-8.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202108272323535_initial9.cs" />
+    <Compile Include="Migrations\202108272323535_initial9.Designer.cs">
+      <DependentUpon>202108272323535_initial9.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Inform.cs" />
     <Compile Include="Models\SchedulerDataContext.cs" />
     <Compile Include="Models\Project.cs" />
     <Compile Include="Models\ViewModels\AccountViewModels.cs" />
+    <Compile Include="Models\ViewModels\ListCategories.cs" />
     <Compile Include="Models\ViewModels\ManageVieModels.cs" />
     <Compile Include="Models\ViewModels\ShowCategory.cs" />
     <Compile Include="Models\ViewModels\ShowInform.cs" />
@@ -243,6 +248,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Category\category.css" />
     <Content Include="Content\Content.css" />
+    <Content Include="Content\Inform\inform.css" />
     <Content Include="Content\markup.css" />
     <Content Include="Content\Project\project.css" />
     <Content Include="favicon.ico" />
@@ -332,8 +338,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\Home\" />
-    <Folder Include="Content\Inform\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -375,6 +379,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202108222149356_initial-8.resx">
       <DependentUpon>202108222149356_initial-8.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108272323535_initial9.resx">
+      <DependentUpon>202108272323535_initial9.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

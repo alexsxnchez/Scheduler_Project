@@ -14,8 +14,9 @@ namespace Scheduler_Project.Models
         public int ProjectID { get; set; }
         public string ProjectName { get; set; }
         public string ProjectDescription { get; set; }
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd HH:mm AM/PM}")]
-        public DateTime? ProjectTime { get; set; }
+        [DataType(DataType.Time)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:hh\\:mm}")]
+        public TimeSpan? ProjectTime { get; set; }
         public string ProjectDate { get; set; }
 
         [ForeignKey("Category")]
@@ -34,8 +35,9 @@ namespace Scheduler_Project.Models
         [DisplayName("Description")]
         public string ProjectDescription { get; set; }
         [DisplayName("Time")]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:hh:mm tt}")]
-        public DateTime? ProjectTime { get; set; }
+        [DataType(DataType.Time)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:hh\\:mm}")]
+        public TimeSpan? ProjectTime { get; set; }
         [DisplayName("Date")]
         public string ProjectDate { get; set; }
         [DisplayName("Category Id")]

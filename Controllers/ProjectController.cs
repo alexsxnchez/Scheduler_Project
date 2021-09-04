@@ -20,7 +20,7 @@ namespace Scheduler_Project.Controllers
 
         private JavaScriptSerializer jss = new JavaScriptSerializer();
         private static readonly HttpClient client;
-
+        public object CategoryID { get; private set; }
 
         static ProjectController()
         {
@@ -127,7 +127,7 @@ namespace Scheduler_Project.Controllers
             if (response.IsSuccessStatusCode)
             {
                 //int ProjectID = response.Content.ReadAsAsync<int>().Result;
-                return RedirectToAction("List", "Category" /*new { id = ProjectID }*/);
+                return RedirectToAction("Details", "Category", new { id = CategoryID });
             }
             else
             {

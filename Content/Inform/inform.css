@@ -1,0 +1,114 @@
+﻿body {
+}
+h2 {
+    text-align: center;
+    color: black;
+    padding-top: 20px;
+}
+.edit__button {
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #fCA311;
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: normal;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid white;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.edit__button:hover {
+    background-color: #AF6D00;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+.delete__button {
+    color: #fff;
+    background-color: #FF3E3E;
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: normal;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid white;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.delete__button:hover {
+    background-color: #bf2d2d;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+.back__button {
+    color: #fff;
+    background-color: #2d63c1;
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: normal;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid white;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.back__button:hover {
+    background-color: #21488c;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+.project__item {
+    background: white;
+    border-radius: 5px;
+    margin: 10px;
+    width: 400px;
+}
+.project__item h4, .project__item p {
+    padding: 10px;
+    margin: 0;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+.portion__all {
+    width: 100%;
+    padding: 50px 0;
+}
+.portion__row {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.convert__white {
+    color: white;
+}
+
+.between {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
